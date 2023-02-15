@@ -5,7 +5,7 @@ from selenium.common.exceptions import TimeoutException
 
 
 class BasePage(object):
-    def __init__(self, driver, url):
+    def __init__(self, driver, url="file:///C:/Users/rafae/PycharmProjects/pom_project/test/Automation%20Project.html"):
         self.base_url = url
         self.driver = driver
 
