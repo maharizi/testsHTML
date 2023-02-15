@@ -1,6 +1,13 @@
 from selenium.webdriver.common.by import By
+from selenium import webdriver
 
 
 class Locator(object):
-    id_combo_box = (By.ID, 'RESULT_RadioButton-9')
-    xpath_first_option = (By.XPATH, "//option[@value='Radio-0']")
+
+    driver = webdriver.Chrome()
+    driver.get('file:///C:/bootcamp ness/python/html/nextpage.html')
+    change_title = (By.XPATH, "//button")
+    print(driver.find_element(*change_title).text)
+
+
+
