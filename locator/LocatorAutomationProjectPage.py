@@ -23,9 +23,9 @@ class Locator(object):
     chemistry = (By.XPATH, "//fieldset/input[@id='c']")
     english = (By.XPATH, "//fieldset/input[@id='e']")
     ok = (By.XPATH, "//fieldset/fieldset/input[@value='OK']")
-    chemistry = (By.XPATH, "//fieldset/fieldset/input[@id='CB']")
-    english = (By.XPATH, "//fieldset/fieldset/input[@id='send']")
-    print(driver.find_element(By.XPATH, "//fieldset/fieldset/input[@id='send']").get_attribute('value'))
+    clear = (By.XPATH, "//fieldset/fieldset/input[@id='CB']")
+    send = (By.XPATH, "//fieldset/fieldset/input[@id='send']")
+    print(driver.find_element(*send).get_attribute('value'))
 
 
 

@@ -7,9 +7,7 @@ class Locator(object):
     driver = webdriver.Chrome()
     driver.get('file:///C:/bootcamp ness/python/html/nextpage.html')
     change_title = (By.XPATH, "//button")
-    ele = driver.find_element(By.XPATH, "//button")
-    print(ele.text)
-
+    print(driver.find_element(*change_title).text)
 
 
 
