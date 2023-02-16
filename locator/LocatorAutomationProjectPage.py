@@ -27,8 +27,9 @@ class Locator(object):
     send = (By.XPATH, "//fieldset/fieldset/input[@id='send']")
     paragraph_set_text = (By.ID, 'pbyuser')
     button_set_text = (By.XPATH, "//fieldset/button[1]")
+    # Strange - text doesn't change to 'Finish'
     paragraph_start_loading = (By.ID, 'startLoad')
-    paragraph_start_loading_after_click = (By.ID, 'startLoad')####
+    # paragraph_start_loading_after_click = (By.ID, 'startLoad')
     button_start_loading = (By.XPATH, "//fieldset/button[2]")
     next_page = (By.LINK_TEXT, 'Next Page')
     windy = (By.LINK_TEXT, 'Windy')
