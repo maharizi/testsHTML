@@ -1,7 +1,7 @@
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import TimeoutException
 from locator.LocatorAutomationProjectPage import Locator
 import re
@@ -190,9 +190,20 @@ class BasePage(object):
         from the paragraph content
         :return str:
         """
-        x = (By.ID, "pbyuser")
-        paragraph = self.find_element(*x)
+        paragraph = self.find_element(*Locator.paragraph_set_text)
         return paragraph.Text()
 
-
-
+    def get_text_after_click_start_loading_button(self):
+        """
+        This function return the text which was changed
+        after we click the button and wait some time
+        if the text was not changed, this function return None
+        :return str:
+        """
+        self.click_button(*Locator.button_start_loading)
+        element_text = WebDriverWait(self.driver, 10)
+        element_text.until(ec.text_to_be_present_in_element(*Locator.paragraph_start_loading, "Finish"))
+        if element_text:
+            return self.driver.find_element(*Locator.paragraph_start_loading).text
+        else:
+            return None

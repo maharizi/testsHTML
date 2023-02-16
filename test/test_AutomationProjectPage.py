@@ -1,25 +1,26 @@
-import os
-import pytest as pytest
-from selenium import webdriver
-
-from locator.LocatorAutomationProjectPage import Locator
+from selenium.webdriver import Chrome
 from page.BasePage import BasePage
+from locator.LocatorAutomationProjectPage import Locator
+from dotenv import load_dotenv
 
-driver = webdriver.Chrome()
-locator_automation_project = Locator()
-url_title=os.getenv('Automation Project')
+import os
+import sys
+import time
+import inspect
+import pytest
 
 
 @pytest.fixture
-def base_page():
-    """
-    This function init pytest
-    and return instance of BasePage
-    :return instance of BasePage:
-    """
+def automation_project_page():
+    driver = Chrome()
     return BasePage(driver)
 
 
-@pytest.mark.test_first_test
-def test_first_name(base_page):
-    assert base_page.first_name_is_valid() == True
+@pytest.mark.test
+def test_get_title(automation_project_page):
+    assert automation_project_page.get_title() == "Automation Project"
+
+
+# @pytest.mark.test_first_test
+# def test_first_name(base_page):
+#     assert base_page.first_name_is_valid() == True

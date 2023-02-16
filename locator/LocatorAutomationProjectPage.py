@@ -29,7 +29,8 @@ class Locator(object):
     button_set_text = (By.XPATH, "//fieldset/button[1]")
     # Strange - text doesn't change to 'Finish'
     paragraph_start_loading = (By.ID, 'startLoad')
-    # paragraph_start_loading_after_click = (By.ID, 'startLoad')
+
+    paragraph_start_loading_after_click = (By.ID, 'startLoad')
     button_start_loading = (By.XPATH, "//fieldset/button[2]")
     next_page = (By.LINK_TEXT, 'Next Page')
     windy = (By.LINK_TEXT, 'Windy')
@@ -40,6 +41,3 @@ class Locator(object):
     # input()
     # print(driver.find_element(*next_page).text)
     # print(driver.find_element(*button_set_text).get_attribute('value'))
-
-
-
