@@ -1,44 +1,25 @@
-#<<<<<<< HEAD
 import inspect
 import pytest
 #from selenium.webdriver import Chrome, ActionChains
 from page.BasePage import *
 import time
-#=======
+from locator.LocatorAutomationProjectPage import *
+from utils.Util import *
 from selenium.webdriver import Chrome
 from page.BasePage import BasePage
-#>>>>>>> 58d1f89f46691788496a5c5fafc0a0625de9c2e0
 from locator.LocatorAutomationProjectPage import Locator
 from dotenv import load_dotenv
-
 import os
 import sys
 import time
 import inspect
-import pytest
 
 
-#<<<<<<< HEAD
-url_title=os.getenv('Automation Project')
-#driver = Chrome()
-#base=BasePage(driver)
-
-#class AutoTest():
-@pytest.fixture()
-def base():
-      #driver1 = Chrome()
-      return BasePage()
-
-def test_gete(base):
-   # print(base.base_url)
-    #assert base.get_title()=='affa'
-    assert base.printa()==5
+load_dotenv()
+data=data_from_json()
 
 
-#=======
-# url_title=os.getenv('Automation Project')
-# driver = Chrome()
-# base=BasePage(driver)
+
 
 
 @pytest.fixture
@@ -46,16 +27,40 @@ def automation_project_page():
     driver = Chrome()
     return BasePage(driver)
 
+@pytest.fixture
+def locator():
+    return Locator()
 
 @pytest.mark.test
 def test_get_title(automation_project_page):
-    assert automation_project_page.get_title() == "Automation Project"
+    for i in range (20):
+        try:
+            assert automation_project_page.get_title() == os.getenv('URL_TITLE')
+            testwriteToFile('pass','test_get_name')
+
+        except:
+            testwriteToFile('fail','test_get_name')
 
 
-# def test_gete():
-#    # print(base.base_url)
-#     assert base.get_title()=='affa'
-#>>>>>>> 58d1f89f46691788496a5c5fafc0a0625de9c2e0
+
+def test_get_fname(automation_project_page,locator):
+    for name in data:
+        try:
+            automation_project_page.insert_text(*locator.first_name,text=name['First Name'])
+            assert automation_project_page.get_text_from_text_box(*locator.first_name)=='shlomo'
+            testwriteToFile(f'input name {name["First Name"]} test pass', 'test_get_name')
+        except:
+             testwriteToFile(f'input name {name["First Name"]} test fail','test_get_name')
+
+def test_first_name_is_valid(automation_project_page,locator):
+    for name in data:
+        try:
+            automation_project_page.insert_text(*locator.first_name, text=name['First Name'])
+            #time.sleep(5)
+            assert automation_project_page.first_name_is_valid()==True
+            testwriteToFile(f' test of valid first name input name {name["First Name"]} test pass', 'first_name_is_valid')
+        except:
+            testwriteToFile(f' test of valid first name input name {name["First Name"]} test fail', 'first_name_is_valid')
 
 
 
