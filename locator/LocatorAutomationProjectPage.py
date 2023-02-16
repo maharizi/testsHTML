@@ -25,8 +25,14 @@ class Locator(object):
     ok = (By.XPATH, "//fieldset/fieldset/input[@value='OK']")
     clear = (By.XPATH, "//fieldset/fieldset/input[@id='CB']")
     send = (By.XPATH, "//fieldset/fieldset/input[@id='send']")
-    # print(driver.find_element(*send).get_attribute('value'))
-
-
-
+    paragraph_set_text = (By.ID, 'pbyuser')
+    button_set_text = (By.XPATH, "//fieldset/button[1]")
+    paragraph_start_loading = (By.ID, 'startLoad')
+    paragraph_start_loading_after_click = (By.ID, 'startLoad')
+    button_start_loading = (By.XPATH, "//fieldset/button[2]")
+    next_page = (By.LINK_TEXT, 'Next Page')
+    windy = (By.LINK_TEXT, 'Windy')
+    tera_santa = (By.LINK_TEXT, 'Tera Santa')
+    java_book = (By.LINK_TEXT, 'Java Book')
+    youtube = (By.LINK_TEXT, 'YouTube')
 

@@ -189,16 +189,21 @@ class BasePage(object):
         from the paragraph content
         :return str:
         """
-        x = (By.ID, "pbyuser")
-        paragraph = self.find_element(*x)
+        paragraph = self.find_element(*Locator.paragraph_set_text)
         return paragraph.Text()
 
     def get_text_after_click_start_loading_button(self):
-        self.click_button(By.XPATH, "//button[text()='Start loading']")
+        """
+        This function return the text which was changed
+        after we click the button and wait some time
+        if the text was not changed, this function return None
+        :return str:
+        """
+        self.click_button(*Locator.button_start_loading)
         element_text = WebDriverWait(self.driver, 10)
-        element_text.until(ec.text_to_be_present_in_element((By.ID, "startLoad"), "Finish"))
+        element_text.until(ec.text_to_be_present_in_element(*Locator.paragraph_start_loading, "Finish"))
         if element_text:
-            return self.driver.find_element(By.ID, "startLoad").text
+            return self.driver.find_element(*Locator.paragraph_start_loading).text
         else:
             return None
-
+        
