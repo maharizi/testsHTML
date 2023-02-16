@@ -1,7 +1,7 @@
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import TimeoutException
 from locator.LocatorAutomationProjectPage import Locator
 import re
@@ -17,6 +17,7 @@ class BasePage(object):
         """
         self.base_url = url
         self.driver = driver
+        self.driver.get(self.base_url)
 
     def find_element(self, *locator):
         """
@@ -192,5 +193,12 @@ class BasePage(object):
         paragraph = self.find_element(*x)
         return paragraph.Text()
 
-
+    def get_text_after_click_start_loading_button(self):
+        self.click_button(By.XPATH, "//button[text()='Start loading']")
+        element_text = WebDriverWait(self.driver, 10)
+        element_text.until(ec.text_to_be_present_in_element((By.ID, "startLoad"), "Finish"))
+        if element_text:
+            return self.driver.find_element(By.ID, "startLoad").text
+        else:
+            return None
 

@@ -4,8 +4,8 @@ from selenium import webdriver
 
 class Locator(object):
 
-    driver = webdriver.Chrome()
-    driver.get('file:///C:/bootcamp ness/python/html/Automation Project.html')
+    # driver = webdriver.Chrome()
+    # driver.get('file:///C:/bootcamp ness/python/html/Automation Project.html')
     first_name = (By.NAME, 'fname')
     last_name = (By.NAME, 'lname')
     city = (By.NAME, 'City')
@@ -25,7 +25,7 @@ class Locator(object):
     ok = (By.XPATH, "//fieldset/fieldset/input[@value='OK']")
     clear = (By.XPATH, "//fieldset/fieldset/input[@id='CB']")
     send = (By.XPATH, "//fieldset/fieldset/input[@id='send']")
-    print(driver.find_element(*send).get_attribute('value'))
+    # print(driver.find_element(*send).get_attribute('value'))
 
 
 
