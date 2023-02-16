@@ -7,6 +7,7 @@ from page.BasePage import BasePage
 
 driver = webdriver.Chrome()
 locator_automation_project = Locator()
+url_title=os.getenv('Automation Project')
 
 
 @pytest.fixture

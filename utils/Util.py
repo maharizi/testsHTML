@@ -2,6 +2,10 @@ import inspect
 import pyautogui
 import cv2
 import numpy as np
+import json
+import os
+from datetime import datetime
+import sys
 
 
 def recorde_test():
@@ -54,6 +58,29 @@ def recorde_test():
     # Destroy all windows
     cv2.destroyAllWindows()
 
+def data_from_json():
+    with open('C:\\Users\\shlomo\\PycharmProjects\\pomProject\\utils\\ddt.json','r') as f:
+         data = json.load(f)
+    return data
+
+def testwriteToFile(string, filename):
+
+    #os.chdir(os.getcwd())
+
+    directory = 'C:\\Users\\shlomo\\PycharmProjects\\pomProject\\test\LOG_test_AutomationProjectPage'
+    try:
+        date = datetime.now().strftime("%d-%m-%Y %H-%M-%S")
+        filename += f"{date}.txt"
+        filepath = os.path.join(directory, filename)
+        file = open(filepath, 'a')
+        string += datetime.now().strftime(" %d/%m/%Y %H:%M:%S\n")
+        file.write(string)
+        file.flush()
+        file.close()
+    except Exception as e:
+        #writeToFile("Something went wrong: " + str(e))
+        print("Exception: " + str(e))
+        sys.exit(1)
 
 class Util(object):
     pass
