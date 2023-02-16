@@ -45,7 +45,7 @@ class BasePage(object):
         """
         return self.driver.current_url
 
-    def insert_text(self, *locator, text):
+    def insert_text(self,*locator,  text):
         """
         This function get location of text box
         and put in the parameter text
@@ -73,7 +73,7 @@ class BasePage(object):
         :param locator:
         :return value:
         """
-        text_box = self.find_element(self, *locator)
+        text_box = self.find_element(*locator)
         return text_box.get_attribute('value')
 
     def first_name_is_valid(self):

@@ -1,9 +1,7 @@
 import re
 import time
-<<<<<<< HEAD
-=======
 import json
->>>>>>> 1230eb3abaec4139e608d2ed21a7657ce4726f28
+from locator.LocatorAutomationProjectPage import Locator
 from selenium.webdriver import Chrome, ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium import webdriver
@@ -18,26 +16,22 @@ from page.AutomationProjectPage import HomePage
 from page.BasePage import BasePage
 
 if __name__ == '__main__':
-<<<<<<< HEAD
-    url = "file:///C:/AutomationProject.html"
-    driver = webdriver.Chrome()
-    driver.get(url)
-    # d = driver.find_element(By.ID, "send")
-    driver.find_element(By.XPATH, "//button[text()='Start loading']").click()
-
-    elem2 = WebDriverWait(driver, 20).until(ec.text_to_be_present_in_element((By.ID, "startLoad"), "Finish"))
-    if elem2:
-        print(driver.find_element(By.ID, "startLoad").text)
-
-=======
+    locator=Locator()
     driver=Chrome()
     a=BasePage(driver)
+    # name="shlomo"
+    a.insert_text(*Locator.first_name,text='shlomo')
+    time.sleep(5)
+    print(a.get_text_from_text_box(*Locator.first_name))
+
     print(a.get_title())
+
     #data=data_from_json()
     #print(data[1]['Buttons'][1])
     #testwriteToFile('refal','refal')
     #data=data_from_json()
    # print(data_from_json())
+
     #url = "file:///C:/Users/rafae/PycharmProjects/pom_project/test/Automation%20Project.html"
     #driver = webdriver.Chrome()
     # home_page = HomePage(url, driver)
@@ -52,6 +46,6 @@ if __name__ == '__main__':
     #time.sleep(10)
    # radio_button_female = driver.find_element(By.ID, "f").is_selected()
     #print(radio_button_female)
->>>>>>> 1230eb3abaec4139e608d2ed21a7657ce4726f28
+
 
 
