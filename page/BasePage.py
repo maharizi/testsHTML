@@ -1,4 +1,5 @@
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
@@ -24,7 +25,7 @@ class BasePage(object):
         :param locator:
         :return element:
         """
-        return self.driver.find_element(*locator)
+        return self.driver.findElement(*locator)
 
     def get_title(self):
         """
@@ -127,15 +128,69 @@ class BasePage(object):
         radio-button is selected
         :return bool:
         """
-        radio_button_female = \
-            self.driver.findElement(*Locator.female).isSelected()
-        radio_button_male = \
-            self.driver.findElement(*Locator.male).isSelected()
-        radio_button_other = \
-            self.driver.findElement(*Locator.other).isSelected()
-        if radio_button_other or radio_button_male or radio_button_female:
+        if self.find_element(*Locator.female).is_selected():
             return True
-        else:
+        if self.find_element(*Locator.male).is_selected():
+            return True
+        if self.find_element(*Locator.other).is_selected():
+            return True
+        return False
+
+    def at_least_one_check_box_is_selected(self):
+        """
+        This function check if at least one checkbox
+        is selected
+        :return bool:
+        """
+        if self.find_element(*Locator.math).is_selected():
+            return True
+        if self.find_element(*Locator.biology).is_selected():
+            return True
+        if self.find_element(*Locator.physics).is_selected():
+            return True
+        if self.find_element(*Locator.pop).is_selected():
+            return True
+        if self.find_element(*Locator.dud).is_selected():
+            return True
+        if self.find_element(*Locator.english).is_selected():
+            return True
+        if self.find_element(*Locator.chemistry).is_selected():
+            return True
+        return False
+
+    def check_clear(self, click_clear=False):
+        """
+        This function check if all the fields
+        were cleared after click clear button manually or automatically
+        default is False
+        :param click_clear:
+        :return bool:
+        """
+        if not click_clear:
+            self.click_button(*Locator.clear)
+        if self.get_text_from_text_box(*Locator.first_name):
             return False
+        if self.get_text_from_text_box(*Locator.last_name):
+            return False
+        if self.get_text_from_text_box(*Locator.email):
+            return False
+        if self.get_text_from_text_box(*Locator.email):
+            return False
+        if not self.at_least_one_check_box_is_selected():
+            return False
+        if not self.one_radio_button_is_selected():
+            return False
+        return True
+
+    def check_paragraph_content(self):
+        """
+        This function return the text
+        from the paragraph content
+        :return str:
+        """
+        x = (By.ID, "pbyuser")
+        paragraph = self.find_element(*x)
+        return paragraph.Text()
+
 
 
