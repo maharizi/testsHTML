@@ -7,7 +7,7 @@ import re
 
 
 class BasePage(object):
-    def __init__(self, driver, url="file:///C:/Users/rafae/PycharmProjects/pom_project/test/Automation%20Project.html"):
+    def __init__(self, driver, url="file:///C:/AutomationProject.html"):
         """
         Constructor to this class,
         this function get webdriver and url
