@@ -9,6 +9,7 @@ import re
 
 class BasePage(object):
     def __init__(self, driver, url="file:///C:/AutomationProject.html"):
+
         """
         Constructor to this class,
         this function get webdriver and url
@@ -17,6 +18,7 @@ class BasePage(object):
         """
         self.base_url = url
         self.driver = driver
+        self.driver.get(self.base_url)
 
     def find_element(self, *locator):
         """

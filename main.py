@@ -5,6 +5,7 @@ from selenium.webdriver import Chrome, ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium import webdriver
 from utils.Util import *
+from page.BasePage import *
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -14,9 +15,12 @@ from page.AutomationProjectPage import HomePage
 
 
 if __name__ == '__main__':
+    driver=Chrome()
+    a=BasePage(driver)
+    print(a.get_title())
     #data=data_from_json()
     #print(data[1]['Buttons'][1])
-    testwriteToFile('refal','refal')
+    #testwriteToFile('refal','refal')
     #data=data_from_json()
    # print(data_from_json())
     #url = "file:///C:/Users/rafae/PycharmProjects/pom_project/test/Automation%20Project.html"
