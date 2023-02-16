@@ -9,6 +9,7 @@ import re
 
 class BasePage(object):
     def __init__(self, driver, url="file:///C:/AutomationProject.html"):
+
         """
         Constructor to this class,
         this function get webdriver and url
@@ -26,7 +27,7 @@ class BasePage(object):
         :param locator:
         :return element:
         """
-        return self.driver.findElement(*locator)
+        return self.driver.find_element(*locator)
 
     def get_title(self):
         """
@@ -206,4 +207,3 @@ class BasePage(object):
             return self.driver.find_element(*Locator.paragraph_start_loading).text
         else:
             return None
-        
