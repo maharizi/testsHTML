@@ -4,8 +4,8 @@ from selenium import webdriver
 
 class Locator(object):
 
-    driver = webdriver.Chrome()
-    driver.get('file:///C:/bootcamp ness/python/html/Automation Project.html')
+    # driver = webdriver.Chrome()
+    # driver.get('file:///C:/bootcamp ness/python/html/AutomationProject.html')
     first_name = (By.NAME, 'fname')
     last_name = (By.NAME, 'lname')
     city = (By.NAME, 'City')
