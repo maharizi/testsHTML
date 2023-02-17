@@ -58,16 +58,19 @@ def recorde_test():
     # Destroy all windows
     cv2.destroyAllWindows()
 
+
 def data_from_json():
-    with open('C:\\Users\\shlomo\\PycharmProjects\\pomProject\\utils\\ddt.json','r') as f:
+    # shlomo path - C:\\Users\\shlomo\\PycharmProjects\\pomProject\\utils\\ddt.json
+    with open('C:\\Users\\User\\PycharmProjects\\SeleniumProjectNew\\pomProject\\utils\\ddt.json', 'r') as f:
          data = json.load(f)
     return data
+
 
 def testwriteToFile(string, filename):
 
     #os.chdir(os.getcwd())
-
-    directory = 'C:\\Users\\shlomo\\PycharmProjects\\pomProject\\test\LOG_test_AutomationProjectPage'
+    # shlomo path - C:\\Users\\shlomo\\PycharmProjects\\pomProject\\test\LOG_test_AutomationProjectPage
+    directory = 'C:\\Users\\user\\PycharmProjects\\SeleniumProjectNew\\pomProject\\test\LOG_test_AutomationProjectPage'
     try:
         date = datetime.now().strftime("%d-%m-%Y %H-%M-%S")
         filename += f"{date}.txt"
@@ -81,6 +84,7 @@ def testwriteToFile(string, filename):
         #writeToFile("Something went wrong: " + str(e))
         print("Exception: " + str(e))
         sys.exit(1)
+
 
 class Util(object):
     pass

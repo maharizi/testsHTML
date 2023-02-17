@@ -3,8 +3,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import TimeoutException
-from locator.LocatorAutomationProjectPage import Locator
-from locator.LocatorNextPagePage import Locator
+from locator.LocatorAutomationProjectPage import Locator as A_Locator
+from locator.LocatorNextPagePage import Locator as N_Locator
 import re
 
 
@@ -82,7 +82,7 @@ class BasePage(object):
         first name is valid by regex
         :return bool:
         """
-        first_name = self.get_text_from_text_box(*Locator.first_name)
+        first_name = self.get_text_from_text_box(*A_Locator.first_name)
         if re.match("[a-zA-Z]{1,15}$", first_name):
             return True
         else:
@@ -94,7 +94,7 @@ class BasePage(object):
         last name is valid by regex
         :return bool:
         """
-        last_name = self.get_text_from_text_box(*Locator.last_name)
+        last_name = self.get_text_from_text_box(*A_Locator.last_name)
         if re.match("[a-zA-Z]{1,15}$", last_name):
             return True
         else:
@@ -106,7 +106,7 @@ class BasePage(object):
         email is valid by regex
         :return bool:
         """
-        email = self.get_text_from_text_box(*Locator.email)
+        email = self.get_text_from_text_box(*A_Locator.email)
         if re.match(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+', email):
             return True
         else:
@@ -114,15 +114,28 @@ class BasePage(object):
 
     def phone_number_is_valid(self):
         """
-        This function check if the
-        phone number is valid by regex
+        This function click femail radio button
         :return bool:
         """
-        phone_number = self.get_text_from_text_box(Locator.phone)
+        phone_number = self.get_text_from_text_box(*A_Locator.phone)
         if re.match(r'[0-9]{7}$', phone_number):
             return True
         else:
             return False
+
+    def click_one_radio_button(self, option):
+        """
+        This function click
+        radio-button
+        :return null:
+        """
+        match option:
+            case 'Other':
+                self.driver.find_element(*A_Locator.other).click()
+            case 'Male':
+                self.driver.find_element(*A_Locator.male).click()
+            case 'Female':
+                self.driver.find_element(*A_Locator.female).click()
 
     def one_radio_button_is_selected(self):
         """
@@ -130,13 +143,36 @@ class BasePage(object):
         radio-button is selected
         :return bool:
         """
-        if self.find_element(*Locator.female).is_selected():
+        if self.find_element(*A_Locator.female).is_selected():
             return True
-        if self.find_element(*Locator.male).is_selected():
+        if self.find_element(*A_Locator.male).is_selected():
             return True
-        if self.find_element(*Locator.other).is_selected():
+        if self.find_element(*A_Locator.other).is_selected():
             return True
         return False
+
+    def click_one_checkbox(self, options):
+        """
+        This function click
+        checkbox
+        :return null:
+        """
+        for option in options:
+            match option:
+                case 'Math':
+                    self.driver.find_element(*A_Locator.math).click()
+                case 'Physics':
+                    self.driver.find_element(*A_Locator.physics).click()
+                case 'POP':
+                    self.driver.find_element(*A_Locator.pop).click()
+                case 'DUD':
+                    self.driver.find_element(*A_Locator.dud).click()
+                case 'Biology':
+                    self.driver.find_element(*A_Locator.biology).click()
+                case 'Chemistry':
+                    self.driver.find_element(*A_Locator.chemistry).click()
+                case 'English':
+                    self.driver.find_element(*A_Locator.english).click()
 
     def at_least_one_check_box_is_selected(self):
         """
@@ -144,19 +180,19 @@ class BasePage(object):
         is selected
         :return bool:
         """
-        if self.find_element(*Locator.math).is_selected():
+        if self.find_element(*A_Locator.math).is_selected():
             return True
-        if self.find_element(*Locator.biology).is_selected():
+        if self.find_element(*A_Locator.biology).is_selected():
             return True
-        if self.find_element(*Locator.physics).is_selected():
+        if self.find_element(*A_Locator.physics).is_selected():
             return True
-        if self.find_element(*Locator.pop).is_selected():
+        if self.find_element(*A_Locator.pop).is_selected():
             return True
-        if self.find_element(*Locator.dud).is_selected():
+        if self.find_element(*A_Locator.dud).is_selected():
             return True
-        if self.find_element(*Locator.english).is_selected():
+        if self.find_element(*A_Locator.english).is_selected():
             return True
-        if self.find_element(*Locator.chemistry).is_selected():
+        if self.find_element(*A_Locator.chemistry).is_selected():
             return True
         return False
 
@@ -169,14 +205,14 @@ class BasePage(object):
         :return bool:
         """
         if not click_clear:
-            self.click_button(*Locator.clear)
-        if self.get_text_from_text_box(*Locator.first_name):
+            self.click_button(*A_Locator.clear)
+        if self.get_text_from_text_box(*A_Locator.first_name):
             return False
-        if self.get_text_from_text_box(*Locator.last_name):
+        if self.get_text_from_text_box(*A_Locator.last_name):
             return False
-        if self.get_text_from_text_box(*Locator.email):
+        if self.get_text_from_text_box(*A_Locator.email):
             return False
-        if self.get_text_from_text_box(*Locator.phone):
+        if self.get_text_from_text_box(*A_Locator.phone):
             return False
         if not self.at_least_one_check_box_is_selected():
             return False
@@ -190,7 +226,7 @@ class BasePage(object):
         from the paragraph content
         :return str:
         """
-        paragraph = self.find_element(*Locator.paragraph_set_text)
+        paragraph = self.find_element(*A_Locator.paragraph_set_text)
         return paragraph.Text()
 
     def get_text_after_click_start_loading_button(self):
@@ -200,11 +236,11 @@ class BasePage(object):
         if the text was not changed, this function return None
         :return str:
         """
-        self.click_button(*Locator.button_start_loading)
+        self.click_button(*A_Locator.button_start_loading)
         element_text = WebDriverWait(self.driver, 10)
-        element_text.until(ec.text_to_be_present_in_element(*Locator.paragraph_start_loading, "Finish"))
+        element_text.until(ec.text_to_be_present_in_element(*A_Locator.paragraph_start_loading, "Finish"))
         if element_text:
-            return self.driver.find_element(*Locator.paragraph_start_loading).text
+            return self.driver.find_element(*A_Locator.paragraph_start_loading).text
         else:
             return None
 
@@ -216,9 +252,9 @@ class BasePage(object):
         the page is loaded
         :return:
         """
-        self.click_button(*Locator.next_page)
+        self.click_button(*N_Locator.next_page)
         try:
-            element_present = ec.presence_of_element_located(*Locator.change_title)
+            element_present = ec.presence_of_element_located(*N_Locator.change_title)
             WebDriverWait(self.driver, 5).until(element_present)
             return self.get_title()
         except TimeoutException:
