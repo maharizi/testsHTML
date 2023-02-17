@@ -6,8 +6,8 @@
 		"Mobile": "2724606",
 		"Email": "shlomo22m@gmail.com",
 		"GENDER Buttons": "Other",
-		"Buttons":["gasd"],
-		"Set Text ":"sad "
+		"Buttons":[" "],
+		"Set Text ":" "
 	},
 
 	{
@@ -16,7 +16,7 @@
 		"Mobile": "0507264408",
 		"Email": "maor@gmail.com",
 		"GENDER Buttons": "Male",
-		"Buttons":["Math","Physics","POP ","DUD","Biology ","Chemistry ","English"],
+		"Buttons":["Math","Physics","POP ","DUD","Biology ","English"],
 		"Set Text ":"sad "
 	},
 	
@@ -26,7 +26,7 @@
 		"Mobile": "0508811608",
 		"Email": "refal@gmail.com",
 		"GENDER Buttons": "Female",
-		"Buttons":["Math","Physics","POP ","DUD","Biology ","Chemistry ","Engl"],
+		"Buttons":["Math","POP ","DUD","Biology ","Chemistry ","Engl"],
 		"Set Text ":"sad "
 	}
 ]

@@ -157,22 +157,22 @@ class BasePage(object):
         checkbox
         :return null:
         """
-        for option in options:
-            match option:
-                case 'Math':
-                    self.driver.find_element(*A_Locator.math).click()
-                case 'Physics':
-                    self.driver.find_element(*A_Locator.physics).click()
-                case 'POP':
-                    self.driver.find_element(*A_Locator.pop).click()
-                case 'DUD':
-                    self.driver.find_element(*A_Locator.dud).click()
-                case 'Biology':
-                    self.driver.find_element(*A_Locator.biology).click()
-                case 'Chemistry':
-                    self.driver.find_element(*A_Locator.chemistry).click()
-                case 'English':
-                    self.driver.find_element(*A_Locator.english).click()
+        #for option in options:
+        match options:
+            case 'Math':
+                self.driver.find_element(*A_Locator.math).click()
+            case 'Physics':
+                self.driver.find_element(*A_Locator.physics).click()
+            case 'POP':
+                self.driver.find_element(*A_Locator.pop).click()
+            case 'DUD':
+                self.driver.find_element(*A_Locator.dud).click()
+            case 'Biology':
+                self.driver.find_element(*A_Locator.biology).click()
+            case 'Chemistry':
+                self.driver.find_element(*A_Locator.chemistry).click()
+            case 'English':
+                self.driver.find_element(*A_Locator.english).click()
 
     def at_least_one_check_box_is_selected(self):
         """
@@ -204,7 +204,7 @@ class BasePage(object):
         :param click_clear:
         :return bool:
         """
-        if not click_clear:
+        if  click_clear:
             self.click_button(*A_Locator.clear)
         if self.get_text_from_text_box(*A_Locator.first_name):
             return False
@@ -214,9 +214,9 @@ class BasePage(object):
             return False
         if self.get_text_from_text_box(*A_Locator.phone):
             return False
-        if not self.at_least_one_check_box_is_selected():
+        if  self.at_least_one_check_box_is_selected():
             return False
-        if not self.one_radio_button_is_selected():
+        if  self.one_radio_button_is_selected():
             return False
         return True
 

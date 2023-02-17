@@ -1,5 +1,4 @@
 import inspect
-import pytest
 #from selenium.webdriver import Chrome, ActionChains
 from page.BasePage import *
 import time
@@ -13,6 +12,7 @@ import os
 import sys
 import time
 import inspect
+import pytest
 
 
 load_dotenv()
@@ -155,3 +155,17 @@ def test_at_least_one_check_box_is_selected(automation_project_page,locator):
         except Exception:
             testwriteToFile(f' test of checkbox input name {name["Buttons"]} test fail', 'at_least_one_check_box_is_selected')
 
+@pytest.mark.test_clear_button
+def test_clear_button(automation_project_page,locator):
+    for name in data:
+        automation_project_page.insert_text(*locator.first_name, text=name['First Name'])
+        automation_project_page.insert_text(*locator.last_name, text=name['Last Name'])
+        automation_project_page.insert_text(*locator.phone, text=name['Mobile'])
+        automation_project_page.insert_text(*locator.email, text=name['Email'])
+        automation_project_page.click_one_checkbox(name['Buttons'])
+        automation_project_page.click_one_radio_button(name['GENDER Buttons'])
+        try:
+            assert automation_project_page.check_clear(True)==True
+            testwriteToFile(f' input is: {name} \n expected result is True actual result is True test pass', 'test_clear_button')
+        except:
+             testwriteToFile(f' input is: {name} \n expected result is True actual result is False test fail','test_clear_button')
