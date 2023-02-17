@@ -1,4 +1,3 @@
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.ui import WebDriverWait
@@ -85,7 +84,8 @@ class BasePage(object):
         :return bool:
         """
         first_name = self.get_text_from_text_box(*A_Locator.first_name)
-        if re.match("[a-zA-Z]{1,15}$", first_name):
+        first_name_regex = "[a-zA-Z]{1,15}$"
+        if re.match(first_name_regex, first_name):
             return True
         else:
             return False
@@ -97,7 +97,8 @@ class BasePage(object):
         :return bool:
         """
         last_name = self.get_text_from_text_box(*A_Locator.last_name)
-        if re.match("[a-zA-Z]{1,15}$", last_name):
+        last_name_regex = "[a-zA-Z]{1,15}$"
+        if re.match(last_name_regex, last_name):
             return True
         else:
             return False
@@ -135,7 +136,8 @@ class BasePage(object):
         :return bool:
         """
         email = self.get_text_from_text_box(*A_Locator.email)
-        if re.match(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+', email):
+        email_regex = r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+'
+        if re.match(email_regex, email):
             return True
         else:
             return False
@@ -146,7 +148,8 @@ class BasePage(object):
         :return bool:
         """
         phone_number = self.get_text_from_text_box(*A_Locator.phone)
-        if re.match(r'[0-9]{7}$', phone_number):
+        phone_number_regex = r'[0-9]{7}$'
+        if re.match(phone_number_regex, phone_number):
             return True
         else:
             return False
@@ -328,8 +331,8 @@ class BasePage(object):
 
     def get_title_youtube_after_is_opened(self):
         """
-        This function return the title of the "Youtube page"
-        after we click the button which move to "Youtube page"
+        This function return the title of the "YouTube page"
+        after we click the button which move to "YouTube page"
         :return str:
         """
         self.click_button(*A_Locator.youtube)
