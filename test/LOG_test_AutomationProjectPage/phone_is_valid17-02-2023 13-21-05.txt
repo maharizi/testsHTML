@@ -1,3 +1,0 @@
- test of valid phone input name 2724606 test pass 17/02/2023 13:21:05
- test of valid phone input name 0507264408 test fail 17/02/2023 13:21:05
- test of valid phone input name 0508811608 test fail 17/02/2023 13:21:05

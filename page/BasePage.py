@@ -182,6 +182,7 @@ class BasePage(object):
             return True
         return False
 
+<<<<<<< HEAD
     # def click_one_checkbox(self, options):
     #     """
     #     This function click
@@ -204,6 +205,30 @@ class BasePage(object):
     #                 self.driver.find_element(*A_Locator.chemistry).click()
     #             case 'English':
     #                 self.driver.find_element(*A_Locator.english).click()
+=======
+    def click_one_checkbox(self, options):
+        """
+        This function click
+        checkbox
+        :return null:
+        """
+        #for option in options:
+        match options:
+            case 'Math':
+                self.driver.find_element(*A_Locator.math).click()
+            case 'Physics':
+                self.driver.find_element(*A_Locator.physics).click()
+            case 'POP':
+                self.driver.find_element(*A_Locator.pop).click()
+            case 'DUD':
+                self.driver.find_element(*A_Locator.dud).click()
+            case 'Biology':
+                self.driver.find_element(*A_Locator.biology).click()
+            case 'Chemistry':
+                self.driver.find_element(*A_Locator.chemistry).click()
+            case 'English':
+                self.driver.find_element(*A_Locator.english).click()
+>>>>>>> 68d9fadb21e0db333b1b4f8cd56183008a78cef6
 
     def at_least_one_check_box_is_selected(self):
         """
@@ -235,7 +260,11 @@ class BasePage(object):
         :param click_clear:
         :return bool:
         """
+<<<<<<< HEAD
         if click_clear:
+=======
+        if  click_clear:
+>>>>>>> 68d9fadb21e0db333b1b4f8cd56183008a78cef6
             self.click_button(*A_Locator.clear)
         if self.get_text_from_text_box(*A_Locator.first_name):
             return False
@@ -245,9 +274,15 @@ class BasePage(object):
             return False
         if self.get_text_from_text_box(*A_Locator.phone):
             return False
+<<<<<<< HEAD
         if self.at_least_one_check_box_is_selected():
             return False
         if self.one_radio_button_is_selected():
+=======
+        if  self.at_least_one_check_box_is_selected():
+            return False
+        if  self.one_radio_button_is_selected():
+>>>>>>> 68d9fadb21e0db333b1b4f8cd56183008a78cef6
             return False
         return True
 

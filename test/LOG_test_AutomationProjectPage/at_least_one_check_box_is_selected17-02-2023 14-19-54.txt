@@ -1,3 +1,0 @@
- test of checkbox input name ['gasd'] test fail 17/02/2023 14:19:54
- test of checkbox input name ['Math', 'Physics', 'POP ', 'DUD', 'Biology ', 'Chemistry ', 'English'] test pass 17/02/2023 14:19:54
- test of checkbox input name ['Math', 'Physics', 'POP ', 'DUD', 'Biology ', 'Chemistry ', 'Engl'] test pass 17/02/2023 14:19:54

@@ -19,6 +19,7 @@ from page.BasePage import BasePage
 
 
 if __name__ == '__main__':
+<<<<<<< HEAD
 
 
 
@@ -28,6 +29,25 @@ if __name__ == '__main__':
 
 
 
+=======
+    locator=Locator()
+    driver=Chrome()
+    a=BasePage(driver)
+
+    #a.insert_text(*Locator.first_name,text='shlomo')
+    #a.click_one_checkbox('Physics')
+    #a.insert_text(*Locator.paragraph_set_text, text='shlomo')
+
+    time.sleep(10)
+    print(a.check_paragraph_content())
+
+    input()
+    # name="shlomo"
+    # a.insert_text(*Locator.first_name,text='shlomo')
+    # time.sleep(5)
+    # print(a.get_text_from_text_box(*Locator.first_name))
+    # print(a.get_title())
+>>>>>>> 68d9fadb21e0db333b1b4f8cd56183008a78cef6
 
     #data=data_from_json()
     #print(data[1]['Buttons'][1])
