@@ -1,9 +1,7 @@
 import re
 import time
-<<<<<<< HEAD
-=======
 import json
->>>>>>> 1230eb3abaec4139e608d2ed21a7657ce4726f28
+
 from selenium.webdriver import Chrome, ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium import webdriver
@@ -17,41 +15,21 @@ from selenium.webdriver.support.ui import Select
 from page.AutomationProjectPage import HomePage
 from page.BasePage import BasePage
 
+
 if __name__ == '__main__':
-<<<<<<< HEAD
-    url = "file:///C:/AutomationProject.html"
-    driver = webdriver.Chrome()
-    driver.get(url)
-    # d = driver.find_element(By.ID, "send")
-    driver.find_element(By.XPATH, "//button[text()='Start loading']").click()
+    # driver = Chrome()
+    # bs = BasePage(driver)
 
-    elem2 = WebDriverWait(driver, 20).until(ec.text_to_be_present_in_element((By.ID, "startLoad"), "Finish"))
-    if elem2:
-        print(driver.find_element(By.ID, "startLoad").text)
+    email = "refaeldimrigmfail.com"
 
-=======
-    driver=Chrome()
-    a=BasePage(driver)
-    print(a.get_title())
-    #data=data_from_json()
-    #print(data[1]['Buttons'][1])
-    #testwriteToFile('refal','refal')
-    #data=data_from_json()
-   # print(data_from_json())
-    #url = "file:///C:/Users/rafae/PycharmProjects/pom_project/test/Automation%20Project.html"
-    #driver = webdriver.Chrome()
-    # home_page = HomePage(url, driver)
-    # home_page.driver.get(home_page.url)
-    # # driver = webdriver.Chrome()
-   # driver.get(url)
-    # # driver.find_element(By.CSS_SELECTOR, "a.btn").click()
-    # # a = driver.window_handles
-    # # driver.switch_to.window(a[0])
-    # # print(driver.title)
-    # print(home_page.driver.title)
-    #time.sleep(10)
-   # radio_button_female = driver.find_element(By.ID, "f").is_selected()
-    #print(radio_button_female)
->>>>>>> 1230eb3abaec4139e608d2ed21a7657ce4726f28
+    if re.match(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+', email):
+        print("true")
+    else:
+        print("false")
+
+
+
+
+
 
 

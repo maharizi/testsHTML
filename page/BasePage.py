@@ -191,9 +191,9 @@ class BasePage(object):
         :return str:
         """
         paragraph = self.find_element(*Locator.paragraph_set_text)
+    def get_text_after_click_start_loading_button(self):
         return paragraph.Text()
 
-    def get_text_after_click_start_loading_button(self):
         """
         This function return the text which was changed
         after we click the button and wait some time
