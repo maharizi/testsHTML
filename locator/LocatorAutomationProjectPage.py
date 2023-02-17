@@ -25,6 +25,7 @@ class Locator(object):
     ok = (By.XPATH, "//fieldset/fieldset/input[@value='OK']")
     clear = (By.XPATH, "//fieldset/fieldset/input[@id='CB']")
     send = (By.XPATH, "//fieldset/fieldset/input[@id='send']")
+
     paragraph_set_text = (By.ID, 'pbyuser')
     button_set_text = (By.XPATH, "//fieldset/button[1]")
     # Strange - text doesn't change to 'Finish'
@@ -37,7 +38,3 @@ class Locator(object):
     tera_santa = (By.LINK_TEXT, 'Tera Santa')
     java_book = (By.LINK_TEXT, 'Java Book')
     youtube = (By.LINK_TEXT, 'YouTube')
-    # driver.find_element(*youtube).click()
-    # input()
-    # print(driver.find_element(*next_page).text)
-    # print(driver.find_element(*button_set_text).get_attribute('value'))

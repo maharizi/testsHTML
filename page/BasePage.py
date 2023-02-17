@@ -4,12 +4,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import TimeoutException
 from locator.LocatorAutomationProjectPage import Locator
+from locator.LocatorNextPagePage import Locator
 import re
 
 
 class BasePage(object):
     def __init__(self, driver, url="file:///C:/AutomationProject.html"):
-
         """
         Constructor to this class,
         this function get webdriver and url
@@ -43,9 +43,9 @@ class BasePage(object):
         of the current page
         :return url:
         """
-        return self.driver.current_url
+        return self.base_url
 
-    def insert_text(self, *locator, text):
+    def insert_text(self,*locator,  text):
         """
         This function get location of text box
         and put in the parameter text
@@ -73,7 +73,7 @@ class BasePage(object):
         :param locator:
         :return value:
         """
-        text_box = self.find_element(self, *locator)
+        text_box = self.find_element(*locator)
         return text_box.get_attribute('value')
 
     def first_name_is_valid(self):
@@ -176,7 +176,7 @@ class BasePage(object):
             return False
         if self.get_text_from_text_box(*Locator.email):
             return False
-        if self.get_text_from_text_box(*Locator.email):
+        if self.get_text_from_text_box(*Locator.phone):
             return False
         if not self.at_least_one_check_box_is_selected():
             return False
@@ -207,3 +207,20 @@ class BasePage(object):
             return self.driver.find_element(*Locator.paragraph_start_loading).text
         else:
             return None
+
+    def get_title_next_page_after_is_opened(self):
+        """
+        This function return the title of the "next page"
+        after we click the button which move to "next page"
+        if the element from the "next page" is presented so
+        the page is loaded
+        :return:
+        """
+        self.click_button(*Locator.next_page)
+        try:
+            element_present = ec.presence_of_element_located(*Locator.change_title)
+            WebDriverWait(self.driver, 5).until(element_present)
+            return self.get_title()
+        except TimeoutException:
+            return 0
+
