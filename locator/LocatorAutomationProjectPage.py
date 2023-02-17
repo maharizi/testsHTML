@@ -5,7 +5,7 @@ from selenium import webdriver
 class Locator(object):
 
     # driver = webdriver.Chrome()
-    # driver.get('file:///C:/bootcamp ness/python/html/Automation Project.html')
+    # driver.get('file:///C:/bootcamp ness/python/html/AutomationProject.html')
     first_name = (By.NAME, 'fname')
     last_name = (By.NAME, 'lname')
     city = (By.NAME, 'City')
@@ -25,6 +25,7 @@ class Locator(object):
     ok = (By.XPATH, "//fieldset/fieldset/input[@value='OK']")
     clear = (By.XPATH, "//fieldset/fieldset/input[@id='CB']")
     send = (By.XPATH, "//fieldset/fieldset/input[@id='send']")
+
     paragraph_set_text = (By.ID, 'pbyuser')
     button_set_text = (By.XPATH, "//fieldset/button[1]")
     # Strange - text doesn't change to 'Finish'
@@ -37,5 +38,3 @@ class Locator(object):
     tera_santa = (By.LINK_TEXT, 'Tera Santa')
     java_book = (By.LINK_TEXT, 'Java Book')
     youtube = (By.LINK_TEXT, 'YouTube')
-
-
