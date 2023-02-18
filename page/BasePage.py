@@ -28,7 +28,10 @@ class BasePage(object):
         :param locator:
         :return element:
         """
-        return self.driver.find_element(*locator)
+        try:
+            return self.driver.find_element(*locator)
+        except Exception:
+            raise Exception("Locator not found")
 
     def get_title(self):
         """
@@ -53,9 +56,12 @@ class BasePage(object):
         :param locator:
         :param text:
         """
-        text_box = self.find_element(*locator)
-        text_box.clear()
-        text_box.send_keys(text)
+        try:
+            text_box = self.find_element(*locator)
+            text_box.clear()
+            text_box.send_keys(text)
+        except Exception:
+            raise Exception("Locator not found")
 
     def click_button(self, *locator):
         """
@@ -64,8 +70,11 @@ class BasePage(object):
         :param locator:
         :return:
         """
-        button = self.driver.find_element(*locator)
-        button.click()
+        try:
+            button = self.driver.find_element(*locator)
+            button.click()
+        except Exception:
+            raise Exception("Locator not found")
 
     def get_text_from_text_box(self, *locator):
         """
@@ -74,8 +83,11 @@ class BasePage(object):
         :param locator:
         :return value:
         """
-        text_box = self.find_element(*locator)
-        return text_box.get_attribute('value')
+        try:
+            text_box = self.find_element(*locator)
+            return text_box.get_attribute('value')
+        except Exception:
+            raise Exception("Locator not found")
 
     def first_name_is_valid(self):
         """
@@ -88,7 +100,7 @@ class BasePage(object):
         if re.match(first_name_regex, first_name):
             return True
         else:
-            return False
+            raise ValueError("The name is not valid")
 
     def last_name_is_valid(self):
         """
@@ -101,7 +113,7 @@ class BasePage(object):
         if re.match(last_name_regex, last_name):
             return True
         else:
-            return False
+            raise ValueError("The last name is not valid")
 
     def insert_city(self, city):
         """
@@ -125,9 +137,12 @@ class BasePage(object):
         :param phone_number:
         :return:
         """
-        select_area_code = Select(self.driver.find_element(*A_Locator.area_code))
-        select_area_code.select_by_visible_text(phone_number[0:3])
-        self.insert_text(phone_number[3:], *A_Locator.phone)
+        try:
+            select_area_code = Select(self.driver.find_element(*A_Locator.area_code))
+            select_area_code.select_by_visible_text(phone_number[0:3])
+            self.insert_text(*A_Locator.phone, phone_number[3:])
+        except Exception:
+            raise Exception("Locator not found")
 
     def email_is_valid(self):
         """
@@ -140,7 +155,7 @@ class BasePage(object):
         if re.match(email_regex, email):
             return True
         else:
-            return False
+            raise ValueError("The email is not valid")
 
     def phone_number_is_valid(self):
         """
@@ -152,7 +167,7 @@ class BasePage(object):
         if re.match(phone_number_regex, phone_number):
             return True
         else:
-            return False
+            raise ValueError("The phone number is not valid")
 
     def click_one_radio_button(self, option):
         """
@@ -160,13 +175,16 @@ class BasePage(object):
         radio-button
         :return null:
         """
-        match option:
-            case 'Other':
-                self.driver.find_element(*A_Locator.other).click()
-            case 'Male':
-                self.driver.find_element(*A_Locator.male).click()
-            case 'Female':
-                self.driver.find_element(*A_Locator.female).click()
+        try:
+            match option:
+                case 'Other':
+                    self.driver.find_element(*A_Locator.other).click()
+                case 'Male':
+                    self.driver.find_element(*A_Locator.male).click()
+                case 'Female':
+                    self.driver.find_element(*A_Locator.female).click()
+        except Exception:
+            raise Exception("locator not found")
 
     def one_radio_button_is_selected(self):
         """
@@ -174,13 +192,16 @@ class BasePage(object):
         radio-button is selected
         :return bool:
         """
-        if self.find_element(*A_Locator.female).is_selected():
-            return True
-        if self.find_element(*A_Locator.male).is_selected():
-            return True
-        if self.find_element(*A_Locator.other).is_selected():
-            return True
-        return False
+        try:
+            if self.find_element(*A_Locator.female).is_selected():
+                return True
+            if self.find_element(*A_Locator.male).is_selected():
+                return True
+            if self.find_element(*A_Locator.other).is_selected():
+                return True
+            return False
+        except Exception:
+            raise Exception("Locator not found")
 
     def click_one_checkbox(self, options):
         """
@@ -188,22 +209,25 @@ class BasePage(object):
         checkbox
         :return null:
         """
-        for option in options:
-            match option:
-                case 'Math':
-                    self.driver.find_element(*A_Locator.math).click()
-                case 'Physics':
-                    self.driver.find_element(*A_Locator.physics).click()
-                case 'POP':
-                    self.driver.find_element(*A_Locator.pop).click()
-                case 'DUD':
-                    self.driver.find_element(*A_Locator.dud).click()
-                case 'Biology':
-                    self.driver.find_element(*A_Locator.biology).click()
-                case 'Chemistry':
-                    self.driver.find_element(*A_Locator.chemistry).click()
-                case 'English':
-                    self.driver.find_element(*A_Locator.english).click()
+        try:
+            for option in options:
+                match option:
+                    case 'Math':
+                        self.driver.find_element(*A_Locator.math).click()
+                    case 'Physics':
+                        self.driver.find_element(*A_Locator.physics).click()
+                    case 'POP':
+                        self.driver.find_element(*A_Locator.pop).click()
+                    case 'DUD':
+                        self.driver.find_element(*A_Locator.dud).click()
+                    case 'Biology':
+                        self.driver.find_element(*A_Locator.biology).click()
+                    case 'Chemistry':
+                        self.driver.find_element(*A_Locator.chemistry).click()
+                    case 'English':
+                        self.driver.find_element(*A_Locator.english).click()
+        except Exception:
+            raise Exception("Locator not found")
 
 
     def at_least_one_check_box_is_selected(self):
@@ -212,21 +236,24 @@ class BasePage(object):
         is selected
         :return bool:
         """
-        if self.find_element(*A_Locator.math).is_selected():
-            return True
-        if self.find_element(*A_Locator.biology).is_selected():
-            return True
-        if self.find_element(*A_Locator.physics).is_selected():
-            return True
-        if self.find_element(*A_Locator.pop).is_selected():
-            return True
-        if self.find_element(*A_Locator.dud).is_selected():
-            return True
-        if self.find_element(*A_Locator.english).is_selected():
-            return True
-        if self.find_element(*A_Locator.chemistry).is_selected():
-            return True
-        return False
+        try:
+            if self.find_element(*A_Locator.math).is_selected():
+                return True
+            if self.find_element(*A_Locator.biology).is_selected():
+                return True
+            if self.find_element(*A_Locator.physics).is_selected():
+                return True
+            if self.find_element(*A_Locator.pop).is_selected():
+                return True
+            if self.find_element(*A_Locator.dud).is_selected():
+                return True
+            if self.find_element(*A_Locator.english).is_selected():
+                return True
+            if self.find_element(*A_Locator.chemistry).is_selected():
+                return True
+            return False
+        except Exception:
+            raise Exception("Locator not found")
 
     def check_clear(self, click_clear=False):
         """
@@ -236,23 +263,26 @@ class BasePage(object):
         :param click_clear:
         :return bool:
         """
-        if click_clear:
-            self.click_button(*A_Locator.clear)
-        if self.get_text_from_text_box(*A_Locator.first_name):
-            return False
-        if self.get_text_from_text_box(*A_Locator.last_name):
-            return False
-        if self.get_text_from_text_box(*A_Locator.email):
-            return False
-        if self.get_text_from_text_box(*A_Locator.phone):
-            return False
-        if self.at_least_one_check_box_is_selected():
-            return False
-        if self.one_radio_button_is_selected():
-            return False
-        if self.one_radio_button_is_selected():
-            return False
-        return True
+        try:
+            if click_clear:
+                self.click_button(*A_Locator.clear)
+            if self.get_text_from_text_box(*A_Locator.first_name):
+                return False
+            if self.get_text_from_text_box(*A_Locator.last_name):
+                return False
+            if self.get_text_from_text_box(*A_Locator.email):
+                return False
+            if self.get_text_from_text_box(*A_Locator.phone):
+                return False
+            if self.at_least_one_check_box_is_selected():
+                return False
+            if self.one_radio_button_is_selected():
+                return False
+            if self.one_radio_button_is_selected():
+                return False
+            return True
+        except Exception:
+            raise Exception("Locator not found")
 
     def check_paragraph_content(self):
         """
@@ -260,8 +290,11 @@ class BasePage(object):
         from the paragraph content
         :return str:
         """
-        paragraph = self.find_element(*A_Locator.paragraph_set_text)
-        return paragraph.text
+        try:
+            paragraph = self.find_element(*A_Locator.paragraph_set_text)
+            return paragraph.text
+        except:
+            raise Exception("Locator not found")
 
     def get_text_after_click_start_loading_button(self):
         """
@@ -277,7 +310,7 @@ class BasePage(object):
         if element_text:
             return self.driver.find_element(*A_Locator.paragraph_start_loading).text
         else:
-            return None
+            raise TimeoutException("The element with the title \"Finish\" was not displayed")
 
     def get_title_next_page_after_is_opened(self):
         """
@@ -288,14 +321,13 @@ class BasePage(object):
         :return:
         """
         self.click_button(*A_Locator.next_page)
-        #self.click_button(*N_Locator.change_title)
         try:
             element_present = ec.presence_of_element_located(N_Locator.change_title)
             WebDriverWait(self.driver, 5).until(element_present)
             self.click_button(*N_Locator.change_title)
             return self.get_title()
-        except TimeoutException:
-            return 0
+        except Exception:
+            raise Exception("The web site is not loaded")
 
     def get_title_windy_after_is_opened(self):
         """
@@ -308,8 +340,8 @@ class BasePage(object):
             element_present = ec.presence_of_element_located((By.ID, "logo"))
             WebDriverWait(self.driver, 5).until(element_present)
             return self.get_title()
-        except TimeoutException:
-            return 0
+        except Exception:
+            raise Exception("The web site is not loaded")
 
     def get_title_terra_santa_after_is_opened(self):
         """
@@ -322,8 +354,8 @@ class BasePage(object):
             element_present = ec.presence_of_element_located((By.ID, "wrap_all"))
             WebDriverWait(self.driver, 5).until(element_present)
             return self.get_title()
-        except TimeoutException:
-            return 0
+        except Exception:
+            raise Exception("The web site is not loaded")
 
     def get_title_java_book_after_is_opened(self):
         """
@@ -331,8 +363,11 @@ class BasePage(object):
         after we click the button which move to "java_book page"
         :return str:
         """
-        self.click_button(*A_Locator.java_book)
-        return self.get_title()
+        try:
+            self.click_button(*A_Locator.java_book)
+            return self.get_title()
+        except Exception:
+            raise Exception("The web site is not loaded")
 
     def get_title_youtube_after_is_opened(self):
         """
@@ -345,10 +380,10 @@ class BasePage(object):
             element_present = ec.presence_of_element_located((By.ID, "logo-icon"))
             WebDriverWait(self.driver, 5).until(element_present)
             return self.get_title()
-        except TimeoutException:
-            return 0
+        except Exception:
+            raise Exception("The web site is not loaded")
 
-    def set_text_from_prompt_alert(self, text):
+    def set_text_in_prompt_alert(self, text):
         """
         This function opens prompt alert and set in the
         parameter text, this text will be shown
@@ -363,5 +398,5 @@ class BasePage(object):
             alert.send_keys(text)
             alert.accept()
             self.driver.implicitly_wait(5)
-        except TimeoutException as e:
-            print(e)
+        except Exception:
+            raise Exception("locator not found")

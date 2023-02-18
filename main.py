@@ -19,20 +19,28 @@ from page.BasePage import BasePage
 
 
 if __name__ == '__main__':
+
     path='utils/ddt.json'
+
     locator=Locator()
     driver=Chrome()
     a=BasePage(driver)
 
     #a.insert_text(*Locator.first_name,text='shlomo')
-    #a.click_one_checkbox(['Physics'])
+    #a.click_one_checkbox('Physics')
     #a.insert_text(*Locator.paragraph_set_text, text='shlomo')
+
     # a.set_text_from_prompt_alert('hii')
     #a.check_paragraph_content()
     #time.sleep(5)
     # print(a.check_paragraph_content())
     #print(a.get_title_next_page_after_is_opened())
     #a.get_text_after_click_start_loading_button()
+
+
+    time.sleep(10)
+    print(a.check_paragraph_content())
+
 
     #input()
     # name="shlomo"

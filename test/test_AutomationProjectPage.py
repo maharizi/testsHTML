@@ -175,19 +175,21 @@ def test_clear_button(automation_project_page,locator):
 
 @pytest.mark.test_send_button
 def test_send_button(automation_project_page,locator):
+    for name in data:
         try:
-            for name in data:
                 automation_project_page.insert_text(*locator.first_name, text=name['First Name'])
                 automation_project_page.insert_text(*locator.last_name, text=name['Last Name'])
-                automation_project_page.insert_text(*locator.phone, text=name['Mobile'])
-                #automation_project_page.insert_text(*locator.email, text=name['Email'])
-                automation_project_page.insert_text(*locator.email,text='')
-                automation_project_page.click_one_checkbox(name['Buttons'])
-                automation_project_page.click_one_radio_button(name['GENDER Buttons'])
+                #automation_project_page.insert_text(*locator.phone, text=name['Mobile'])
+                automation_project_page.insert_text(*locator.email, text=name['Email'])
+                #assert automation_project_page.insert_text(*locator.email,text='')
+                #automation_project_page.click_one_checkbox(name['Buttons'])
+               # automation_project_page.click_one_radio_button(name['GENDER Buttons'])
                 assert automation_project_page.find_element(*locator.send).click() == None
+                assert automation_project_page.email_is_valid() == True
+
                 testwriteToFile(f' test of send button test pass', 'send_button_clicked')
         except Exception:
-            testwriteToFile(f' test of send button test fail', 'send_button_clicked')
+                testwriteToFile(f' test of send button test fail', 'send_button_clicked')
 
 
 @pytest.mark.test_next_page
