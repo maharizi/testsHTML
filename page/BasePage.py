@@ -46,7 +46,7 @@ class BasePage(object):
         """
         return self.base_url
 
-    def insert_text(self, text, *locator):
+    def insert_text(self, *locator, text):
         """
         This function get location of text box
         and put in the parameter text
@@ -127,7 +127,7 @@ class BasePage(object):
         """
         select_area_code = Select(self.driver.find_element(*A_Locator.area_code))
         select_area_code.select_by_visible_text(phone_number[0:3])
-        self.insert_text(phone_number[3:], *A_Locator.phone)
+        self.insert_text(*A_Locator.phone, phone_number[3:])
 
     def email_is_valid(self):
         """
@@ -188,22 +188,22 @@ class BasePage(object):
         checkbox
         :return null:
         """
-        # for option in options:
-        #     match option:
-        #         case 'Math':
-        #             self.driver.find_element(*A_Locator.math).click()
-        #         case 'Physics':
-        #             self.driver.find_element(*A_Locator.physics).click()
-        #         case 'POP':
-        #             self.driver.find_element(*A_Locator.pop).click()
-        #         case 'DUD':
-        #             self.driver.find_element(*A_Locator.dud).click()
-        #         case 'Biology':
-        #             self.driver.find_element(*A_Locator.biology).click()
-        #         case 'Chemistry':
-        #             self.driver.find_element(*A_Locator.chemistry).click()
-        #         case 'English':
-        #             self.driver.find_element(*A_Locator.english).click()
+        for option in options:
+            match option:
+                case 'Math':
+                    self.driver.find_element(*A_Locator.math).click()
+                case 'Physics':
+                    self.driver.find_element(*A_Locator.physics).click()
+                case 'POP':
+                    self.driver.find_element(*A_Locator.pop).click()
+                case 'DUD':
+                    self.driver.find_element(*A_Locator.dud).click()
+                case 'Biology':
+                    self.driver.find_element(*A_Locator.biology).click()
+                case 'Chemistry':
+                    self.driver.find_element(*A_Locator.chemistry).click()
+                case 'English':
+                    self.driver.find_element(*A_Locator.english).click()
 
 
     def at_least_one_check_box_is_selected(self):
@@ -261,7 +261,7 @@ class BasePage(object):
         :return str:
         """
         paragraph = self.find_element(*A_Locator.paragraph_set_text)
-        return paragraph.Text()
+        return paragraph.text
 
     def get_text_after_click_start_loading_button(self):
         """
@@ -273,7 +273,7 @@ class BasePage(object):
         self.click_button(*A_Locator.button_start_loading)
         element_text = WebDriverWait(self.driver, 10)
         element_text.\
-            until(ec.text_to_be_present_in_element(A_Locator.paragraph_start_loading, "Finish"))
+            until(ec.text_to_be_present_in_element(*A_Locator.paragraph_start_loading, text_="Finish"))
         if element_text:
             return self.driver.find_element(*A_Locator.paragraph_start_loading).text
         else:
@@ -287,10 +287,11 @@ class BasePage(object):
         the page is loaded
         :return:
         """
-        self.click_button(*N_Locator.change_title)
+        self.click_button(*A_Locator.next_page)
         try:
-            element_present = ec.presence_of_element_located(*N_Locator.change_title)
+            element_present = ec.presence_of_element_located(N_Locator.change_title)
             WebDriverWait(self.driver, 5).until(element_present)
+            self.click_button(*N_Locator.change_title)
             return self.get_title()
         except TimeoutException:
             return 0
