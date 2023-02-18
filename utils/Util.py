@@ -59,10 +59,12 @@ def recorde_test():
     cv2.destroyAllWindows()
 
 
-def data_from_json():
+def data_from_json(path):
     # shlomo path - C:\\Users\\shlomo\\PycharmProjects\\pomProject\\utils\\ddt.json
     #maor path- C:\\Users\\User\\PycharmProjects\\SeleniumProjectNew\\pomProject\\utils\\ddt.json
-    with open('C:\\Users\\shlomo\\PycharmProjects\\pomProject\\utils\\ddt.json', 'r') as f:
+    #with open('C:\\Users\\shlomo\\PycharmProjects\\pomProject\\utils\\ddt.json', 'r') as f:
+    os.chdir(os.getcwd())
+    with open(path, 'r') as f:
          data = json.load(f)
     return data
 

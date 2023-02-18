@@ -19,7 +19,7 @@ from page.BasePage import BasePage
 
 
 if __name__ == '__main__':
-
+    path='utils/ddt.json'
     locator=Locator()
     driver=Chrome()
     a=BasePage(driver)
@@ -31,10 +31,10 @@ if __name__ == '__main__':
     #a.check_paragraph_content()
     #time.sleep(5)
     # print(a.check_paragraph_content())
-    print(a.get_title_next_page_after_is_opened())
+    #print(a.get_title_next_page_after_is_opened())
     #a.get_text_after_click_start_loading_button()
 
-    input()
+    #input()
     # name="shlomo"
     # a.insert_text(*Locator.first_name,text='shlomo')
     # time.sleep(5)
@@ -42,8 +42,8 @@ if __name__ == '__main__':
     # print(a.get_title())
 
 
-    #data=data_from_json()
-    #print(data[1]['Buttons'][1])
+    data=data_from_json(path)
+    print(data[1]['Buttons'][0])
     #testwriteToFile('refal','refal')
 
    # print(data_from_json())

@@ -16,7 +16,7 @@ import pytest
 
 
 load_dotenv()
-data=data_from_json()
+data=data_from_json('../utils/ddt.json')
 
 
 @pytest.fixture
@@ -101,6 +101,7 @@ def test_get_email(automation_project_page,locator):
 def test_email_is_valid(automation_project_page,locator):
     for name in data:
         try:
+            #automation_project_page.insert_text(*locator.email, text=name['Email'])
             automation_project_page.insert_text(*locator.email, text=name['Email'])
             #time.sleep(5)
             assert automation_project_page.email_is_valid()==True
@@ -179,7 +180,8 @@ def test_send_button(automation_project_page,locator):
                 automation_project_page.insert_text(*locator.first_name, text=name['First Name'])
                 automation_project_page.insert_text(*locator.last_name, text=name['Last Name'])
                 automation_project_page.insert_text(*locator.phone, text=name['Mobile'])
-                automation_project_page.insert_text(*locator.email, text=name['Email'])
+                #automation_project_page.insert_text(*locator.email, text=name['Email'])
+                automation_project_page.insert_text(*locator.email,text='')
                 automation_project_page.click_one_checkbox(name['Buttons'])
                 automation_project_page.click_one_radio_button(name['GENDER Buttons'])
                 assert automation_project_page.find_element(*locator.send).click() == None
