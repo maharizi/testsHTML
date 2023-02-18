@@ -46,7 +46,7 @@ class BasePage(object):
         """
         return self.base_url
 
-    def insert_text(self, text, *locator):
+    def insert_text(self, *locator, text):
         """
         This function get location of text box
         and put in the parameter text
@@ -182,7 +182,6 @@ class BasePage(object):
             return True
         return False
 
-
     def click_one_checkbox(self, options):
         """
         This function click
@@ -190,21 +189,21 @@ class BasePage(object):
         :return null:
         """
         for option in options:
-        match options:
-            case 'Math':
-                self.driver.find_element(*A_Locator.math).click()
-            case 'Physics':
-                self.driver.find_element(*A_Locator.physics).click()
-            case 'POP':
-                self.driver.find_element(*A_Locator.pop).click()
-            case 'DUD':
-                self.driver.find_element(*A_Locator.dud).click()
-            case 'Biology':
-                self.driver.find_element(*A_Locator.biology).click()
-            case 'Chemistry':
-                self.driver.find_element(*A_Locator.chemistry).click()
-            case 'English':
-                self.driver.find_element(*A_Locator.english).click()
+            match option:
+                case 'Math':
+                    self.driver.find_element(*A_Locator.math).click()
+                case 'Physics':
+                    self.driver.find_element(*A_Locator.physics).click()
+                case 'POP':
+                    self.driver.find_element(*A_Locator.pop).click()
+                case 'DUD':
+                    self.driver.find_element(*A_Locator.dud).click()
+                case 'Biology':
+                    self.driver.find_element(*A_Locator.biology).click()
+                case 'Chemistry':
+                    self.driver.find_element(*A_Locator.chemistry).click()
+                case 'English':
+                    self.driver.find_element(*A_Locator.english).click()
 
     def at_least_one_check_box_is_selected(self):
         """

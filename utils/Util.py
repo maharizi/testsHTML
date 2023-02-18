@@ -62,7 +62,7 @@ def recorde_test():
 def data_from_json():
     # shlomo path - C:\\Users\\shlomo\\PycharmProjects\\pomProject\\utils\\ddt.json
     #maor path- C:\\Users\\User\\PycharmProjects\\SeleniumProjectNew\\pomProject\\utils\\ddt.json
-    with open('C:\\Users\\shlomo\\PycharmProjects\\pomProject\\utils\\ddt.json', 'r') as f:
+    with open('C:\\Users\\User\\PycharmProjects\\SeleniumProjectNew\\pomProject\\utils\\ddt.json', 'r') as f:
          data = json.load(f)
     return data
 
@@ -72,7 +72,7 @@ def testwriteToFile(string, filename):
     #os.chdir(os.getcwd())
     # shlomo path - C:\\Users\\shlomo\\PycharmProjects\\pomProject\\test\LOG_test_AutomationProjectPage
     #maor path- C:\\Users\\user\\PycharmProjects\\SeleniumProjectNew\\pomProject\\test\LOG_test_AutomationProjectPage
-    directory = 'C:\\Users\\shlomo\\PycharmProjects\\pomProject\\test\LOG_test_AutomationProjectPage'
+    directory = 'C:\\Users\\user\\PycharmProjects\\SeleniumProjectNew\\pomProject\\test\LOG_test_AutomationProjectPage'
     try:
         date = datetime.now().strftime("%d-%m-%Y %H-%M-%S")
         filename += f"{date}.txt"

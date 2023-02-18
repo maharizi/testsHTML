@@ -155,6 +155,7 @@ def test_at_least_one_check_box_is_selected(automation_project_page,locator):
         except Exception:
             testwriteToFile(f' test of checkbox input name {name["Buttons"]} test fail', 'at_least_one_check_box_is_selected')
 
+
 @pytest.mark.test_clear_button
 def test_clear_button(automation_project_page,locator):
     for name in data:
@@ -169,3 +170,69 @@ def test_clear_button(automation_project_page,locator):
             testwriteToFile(f' input is: {name} \n expected result is True actual result is True test pass', 'test_clear_button')
         except:
              testwriteToFile(f' input is: {name} \n expected result is True actual result is False test fail','test_clear_button')
+
+
+@pytest.mark.test_send_button
+def test_send_button(automation_project_page,locator):
+        try:
+            for name in data:
+                automation_project_page.insert_text(*locator.first_name, text=name['First Name'])
+                automation_project_page.insert_text(*locator.last_name, text=name['Last Name'])
+                automation_project_page.insert_text(*locator.phone, text=name['Mobile'])
+                automation_project_page.insert_text(*locator.email, text=name['Email'])
+                automation_project_page.click_one_checkbox(name['Buttons'])
+                automation_project_page.click_one_radio_button(name['GENDER Buttons'])
+                assert automation_project_page.find_element(*locator.send).click() == None
+                testwriteToFile(f' test of send button test pass', 'send_button_clicked')
+        except Exception:
+            testwriteToFile(f' test of send button test fail', 'send_button_clicked')
+
+
+@pytest.mark.test_next_page
+def test_next_page(automation_project_page,locator):
+        try:
+            automation_project_page.find_element(*locator.next_page).click()
+            assert automation_project_page.get_title() == 'Next Page'
+            testwriteToFile(f' test of next page test pass', 'test_next_page')
+        except:
+            testwriteToFile(f' test of next page test fail', 'test_next_page')
+
+
+@pytest.mark.test_windy
+def test_windy(automation_project_page,locator):
+        try:
+            automation_project_page.find_element(*locator.windy).click()
+            assert automation_project_page.get_title() == 'Windy: Wind map & weather forecast'
+            testwriteToFile(f' test of Windy test pass', 'test_windy')
+        except:
+            testwriteToFile(f' test of Windy test fail', 'test_windy')
+
+
+@pytest.mark.test_tera_santa
+def test_tera_santa(automation_project_page,locator):
+        try:
+            automation_project_page.find_element(*locator.tera_santa).click()
+            assert automation_project_page.get_title() == 'TERRASANTA SEAKAYAK EXPEDITIONS | טרה סנטה קיאקים ימיים – SEAKAYAK EXPEDITIONS'
+            testwriteToFile(f' test of Tera Santa test pass', 'test_tera_santa')
+        except:
+            testwriteToFile(f' test of Tera Santa test fail', 'test_tera_santa')
+
+
+@pytest.mark.test_java_book
+def test_java_book(automation_project_page,locator):
+        try:
+            automation_project_page.find_element(*locator.java_book).click()
+            assert automation_project_page.get_title() != '404 Not Found'
+            testwriteToFile(f' test of Java Book test pass', 'test_java_book')
+        except:
+            testwriteToFile(f' test of Java Book test fail', 'test_java_book')
+
+
+@pytest.mark.test_youtube
+def test_youtube(automation_project_page,locator):
+        try:
+            automation_project_page.find_element(*locator.youtube).click()
+            assert automation_project_page.get_title() == 'YouTube'
+            testwriteToFile(f' test of YouTube test pass', 'test_youtube')
+        except:
+            testwriteToFile(f' test of YouTube test fail', 'test_youtube')

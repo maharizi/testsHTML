@@ -1,32 +1,32 @@
 [
 	
 	{
-		"First Name": "shloצmo",
+		"First Name": "shlomo",
 		"Last Name":"mhadker",
 		"Mobile": "2724606",
 		"Email": "shlomo22m@gmail.com",
 		"GENDER Buttons": "Other",
-		"Buttons":[" "],
+		"Buttons":["Biology"],
 		"Set Text ":" "
 	},
 
 	{
 		"First Name": "maor",
 		"Last Name":"maharizi",
-		"Mobile": "0507264408",
+		"Mobile": "7264408",
 		"Email": "maor@gmail.com",
 		"GENDER Buttons": "Male",
-		"Buttons":["Math","Physics","POP ","DUD","Biology ","English"],
+		"Buttons":["Physics"],
 		"Set Text ":"sad "
 	},
 	
 		{
 		"First Name": "refal",
 		"Last Name":"dimri",
-		"Mobile": "0508811608",
+		"Mobile": "8811608",
 		"Email": "refal@gmail.com",
 		"GENDER Buttons": "Female",
-		"Buttons":["Math","POP ","DUD","Biology ","Chemistry ","Engl"],
+		"Buttons":["Biology"],
 		"Set Text ":"sad "
 	}
 ]
