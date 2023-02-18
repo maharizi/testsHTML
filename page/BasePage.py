@@ -287,10 +287,12 @@ class BasePage(object):
         the page is loaded
         :return:
         """
-        self.click_button(*N_Locator.change_title)
+        self.click_button(*A_Locator.next_page)
+        #self.click_button(*N_Locator.change_title)
         try:
-            element_present = ec.presence_of_element_located(*N_Locator.change_title)
+            element_present = ec.presence_of_element_located(N_Locator.change_title)
             WebDriverWait(self.driver, 5).until(element_present)
+            self.click_button(*N_Locator.change_title)
             return self.get_title()
         except TimeoutException:
             return 0

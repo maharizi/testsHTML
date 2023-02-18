@@ -193,7 +193,7 @@ def test_next_page(automation_project_page,locator):
         try:
             automation_project_page.get_title_next_page_after_is_opened()
             #automation_project_page.find_element(*locator.next_page).click()
-            assert automation_project_page.get_title() == 'Next Page'
+            assert automation_project_page.get_title() == 'Finish'
             testwriteToFile(f' test of next page test pass', 'test_next_page')
         except:
             testwriteToFile(f' test of next page test fail', 'test_next_page')
