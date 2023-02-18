@@ -1,3 +1,0 @@
- test of checkbox input name ['Biolog'] test fail 18/02/2023 14:21:36
- test of checkbox input name ['Physics'] test pass 18/02/2023 14:21:36
- test of checkbox input name ['Biology'] test pass 18/02/2023 14:21:36

@@ -261,7 +261,7 @@ class BasePage(object):
         :return str:
         """
         paragraph = self.find_element(*A_Locator.paragraph_set_text)
-        return paragraph.Text()
+        return paragraph.text
 
     def get_text_after_click_start_loading_button(self):
         """
@@ -273,7 +273,7 @@ class BasePage(object):
         self.click_button(*A_Locator.button_start_loading)
         element_text = WebDriverWait(self.driver, 10)
         element_text.\
-            until(ec.text_to_be_present_in_element(*A_Locator.paragraph_start_loading, "Finish"))
+            until(ec.text_to_be_present_in_element(*A_Locator.paragraph_start_loading, text_="Finish"))
         if element_text:
             return self.driver.find_element(*A_Locator.paragraph_start_loading).text
         else:

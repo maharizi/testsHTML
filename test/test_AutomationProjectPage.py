@@ -191,7 +191,8 @@ def test_send_button(automation_project_page,locator):
 @pytest.mark.test_next_page
 def test_next_page(automation_project_page,locator):
         try:
-            automation_project_page.find_element(*locator.next_page).click()
+            automation_project_page.get_title_next_page_after_is_opened()
+            #automation_project_page.find_element(*locator.next_page).click()
             assert automation_project_page.get_title() == 'Next Page'
             testwriteToFile(f' test of next page test pass', 'test_next_page')
         except:
@@ -201,7 +202,8 @@ def test_next_page(automation_project_page,locator):
 @pytest.mark.test_windy
 def test_windy(automation_project_page,locator):
         try:
-            automation_project_page.find_element(*locator.windy).click()
+            automation_project_page.get_title_windy_after_is_opened()
+            #automation_project_page.find_element(*locator.windy).click()
             assert automation_project_page.get_title() == 'Windy: Wind map & weather forecast'
             testwriteToFile(f' test of Windy test pass', 'test_windy')
         except:
@@ -211,7 +213,8 @@ def test_windy(automation_project_page,locator):
 @pytest.mark.test_tera_santa
 def test_tera_santa(automation_project_page,locator):
         try:
-            automation_project_page.find_element(*locator.tera_santa).click()
+            automation_project_page.get_title_terra_santa_after_is_opened()
+            #automation_project_page.find_element(*locator.tera_santa).click()
             assert automation_project_page.get_title() == 'TERRASANTA SEAKAYAK EXPEDITIONS | טרה סנטה קיאקים ימיים – SEAKAYAK EXPEDITIONS'
             testwriteToFile(f' test of Tera Santa test pass', 'test_tera_santa')
         except:
@@ -221,7 +224,8 @@ def test_tera_santa(automation_project_page,locator):
 @pytest.mark.test_java_book
 def test_java_book(automation_project_page,locator):
         try:
-            automation_project_page.find_element(*locator.java_book).click()
+            automation_project_page.get_title_java_book_after_is_opened()
+            #automation_project_page.find_element(*locator.java_book).click()
             assert automation_project_page.get_title() != '404 Not Found'
             testwriteToFile(f' test of Java Book test pass', 'test_java_book')
         except:
@@ -231,8 +235,31 @@ def test_java_book(automation_project_page,locator):
 @pytest.mark.test_youtube
 def test_youtube(automation_project_page,locator):
         try:
-            automation_project_page.find_element(*locator.youtube).click()
+            automation_project_page.get_title_youtube_after_is_opened()
+            #automation_project_page.find_element(*locator.youtube).click()
             assert automation_project_page.get_title() == 'YouTube'
             testwriteToFile(f' test of YouTube test pass', 'test_youtube')
         except:
             testwriteToFile(f' test of YouTube test fail', 'test_youtube')
+
+
+@pytest.mark.test_set_text_from_prompt_alert
+def test_set_text_from_prompt_alert(automation_project_page):
+    for name in data:
+        try:
+            assert automation_project_page.set_text_from_prompt_alert(name['Set Text'])
+            assert automation_project_page.check_paragraph_content()==name['Set Text']
+            testwriteToFile(f' input is: {name["Set Text"]} \n expected result is: {name["Set Text"]} actual result is: {name["Set Text"]} test pass','test_set_text_from_prompt_alert')
+        except:
+            testwriteToFile(f' input is: {name["Set Text"]} \n expected result is: {name["Set Text"]} actual result is: {name["Set Text"]} test fail','test_set_text_from_prompt_alert')
+
+
+
+@pytest.mark.test_get_finish
+def test_get_finish(automation_project_page):
+    try:
+        assert automation_project_page.get_text_after_click_start_loading_button()=="Finish"
+        testwriteToFile(f' start loading button has been press expeted Finish to show test pass','test_get_finish')
+    except:
+        testwriteToFile(f' start loading button has been press expeted Finish to show test fail', 'test_get_finish')
+
