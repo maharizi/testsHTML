@@ -18,6 +18,18 @@ from page.AutomationProjectPage import HomePage
 from page.BasePage import BasePage
 
 
+<<<<<<< HEAD
+def f1(*args):
+    print(args)
+
+
+if __name__ == '__main__':
+    a = HomePage(Chrome())
+    print(a.url)
+
+
+
+=======
 if __name__ == '__main__':
 
     path='utils/ddt.json'
@@ -25,11 +37,19 @@ if __name__ == '__main__':
     locator=Locator()
     driver=Chrome()
     a=BasePage(driver)
+>>>>>>> 060472c016a5faa15585ce5a1645edf7f21a5c3b
 
     #a.insert_text(*Locator.first_name,text='shlomo')
     #a.click_one_checkbox('Physics')
     #a.insert_text(*Locator.paragraph_set_text, text='shlomo')
 
+<<<<<<< HEAD
+
+    # name="shlomo"
+    # a.insert_text(*Locator.first_name,text='shlomo')
+    # time.sleep(5)
+
+=======
     # a.set_text_from_prompt_alert('hii')
     #a.check_paragraph_content()
     #time.sleep(5)
@@ -48,6 +68,7 @@ if __name__ == '__main__':
     # time.sleep(5)
     # print(a.get_text_from_text_box(*Locator.first_name))
     # print(a.get_title())
+>>>>>>> 060472c016a5faa15585ce5a1645edf7f21a5c3b
 
 
     data=data_from_json(path)
