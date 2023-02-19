@@ -1,0 +1,9 @@
+ input is: good morning 
+ expected result is: good morning actual result is: good morning test pass 19/02/2023 11:38:46
+------------
+ input is: my name 
+ expected result is: my name actual result is: my name test pass 19/02/2023 11:38:46
+------------
+ input is: a 
+ expected result is: a actual result is: a test pass 19/02/2023 11:38:46
+------------

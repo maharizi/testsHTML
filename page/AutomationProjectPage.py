@@ -1,4 +1,6 @@
+import os
 import re
+import dotenv
 
 from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
@@ -8,6 +10,8 @@ from selenium.webdriver.support import expected_conditions as ec
 from locator.LocatorAutomationProjectPage import Locator as A_Locator
 from locator.LocatorNextPagePage import Locator as N_Locator
 from page.BasePage import BasePage
+
+dotenv.load_dotenv("../test/.env")
 
 
 class HomePage(BasePage):
@@ -33,7 +37,7 @@ class HomePage(BasePage):
         if re.match(first_name_regex, first_name):
             return True
         else:
-            raise ValueError("The name is not valid")
+            raise ValueError(os.getenv("INVALID_FIRST_NAME"))
 
 
     def last_name_is_valid(self):
@@ -78,7 +82,7 @@ class HomePage(BasePage):
             select_area_code.select_by_visible_text(phone_number[0:3])
             self.insert_text(*A_Locator.phone, text=phone_number[3:])
         except Exception:
-            raise Exception("Locator not found")
+            raise Exception(os.getenv("LOCATOR_NOT_FOUND"))
 
 
     def email_is_valid(self):
@@ -123,7 +127,7 @@ class HomePage(BasePage):
     #             case 'Female':
     #                 self.driver.find_element(*A_Locator.female).click()
     #     except Exception:
-    #         raise Exception("locator not found")
+    #         raise Exception(os.getenv("LOCATOR_NOT_FOUND"))
 
 
     def one_radio_button_is_selected(self):
@@ -141,7 +145,7 @@ class HomePage(BasePage):
                 return True
             return False
         except Exception:
-            raise Exception("Locator not found")
+            raise Exception(os.getenv("LOCATOR_NOT_FOUND"))
 
 
     # def click_one_checkbox(self, options):
@@ -168,7 +172,7 @@ class HomePage(BasePage):
     #                 case 'English':
     #                     self.driver.find_element(*A_Locator.english).click()
     #     except Exception:
-    #         raise Exception("Locator not found")
+    #         raise Exception(os.getenv("LOCATOR_NOT_FOUND"))
 
 
     def at_least_one_check_box_is_selected(self):
@@ -194,7 +198,7 @@ class HomePage(BasePage):
                 return True
             return False
         except Exception:
-            raise Exception("Locator not found")
+            raise Exception(os.getenv("LOCATOR_NOT_FOUND"))
 
 
     def check_clear(self, click_clear=False):
@@ -224,7 +228,7 @@ class HomePage(BasePage):
                 return False
             return True
         except Exception:
-            raise Exception("Locator not found")
+            raise Exception(os.getenv("LOCATOR_NOT_FOUND"))
 
 
     def check_paragraph_content(self):
@@ -237,7 +241,7 @@ class HomePage(BasePage):
             paragraph = self.find_element(*A_Locator.paragraph_set_text)
             return paragraph.text
         except:
-            raise Exception("Locator not found")
+            raise Exception(os.getenv("LOCATOR_NOT_FOUND"))
 
 
     def get_text_after_click_start_loading_button(self):
@@ -349,4 +353,4 @@ class HomePage(BasePage):
             alert.accept()
             self.driver.implicitly_wait(5)
         except Exception:
-            raise Exception("locator not found")
+            raise Exception(os.getenv("LOCATOR_NOT_FOUND"))

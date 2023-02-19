@@ -81,7 +81,7 @@ def testwriteToFile(string, filename):
         filename += f"{date}.txt"
         filepath = os.path.join(directory, filename)
         file = open(filepath, 'a')
-        string += datetime.now().strftime(" %d/%m/%Y %H:%M:%S\n")
+        string += datetime.now().strftime(" %d/%m/%Y %H:%M:%S\n------------\n")
         file.write(string)
         file.flush()
         file.close()

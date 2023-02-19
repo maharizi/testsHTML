@@ -22,11 +22,16 @@ def f1(*args):
     print(args)
 
 
-if __name__ == '__main__':
-    a = HomePage(Chrome())
-    print(a.url)
+# if __name__ == '__main__':
+#     a = HomePage(Chrome())
+#     print(a.url)
 
 
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> 363228cf4d7372fedbc37474c392d10c081bf8dc
 if __name__ == '__main__':
 
     path='utils/ddt.json'
@@ -34,7 +39,26 @@ if __name__ == '__main__':
     locator=Locator()
     driver=Chrome()
     a=BasePage(driver)
+<<<<<<< HEAD
 
+=======
+    b=HomePage(a.driver)
+
+
+    a.insert_text(*Locator.email,text='shlomo22m@gmai.com')
+    print(b.email_is_valid())
+
+    #a.click_one_checkbox('Physics')
+    #a.insert_text(*Locator.paragraph_set_text, text='shlomo')
+
+
+
+    # name="shlomo"
+    # a.insert_text(*Locator.first_name,text='shlomo')
+    # time.sleep(5)
+
+
+>>>>>>> 363228cf4d7372fedbc37474c392d10c081bf8dc
     # a.set_text_from_prompt_alert('hii')
     #a.check_paragraph_content()
     #time.sleep(5)
@@ -43,8 +67,8 @@ if __name__ == '__main__':
     #a.get_text_after_click_start_loading_button()
 
 
-    time.sleep(10)
-    print(a.check_paragraph_content())
+    #time.sleep(10)
+    #print(a.check_paragraph_content())
 
 
     #input()
@@ -52,12 +76,16 @@ if __name__ == '__main__':
     # a.insert_text(*Locator.first_name,text='shlomo')
     # time.sleep(5)
     # print(a.get_text_from_text_box(*Locator.first_name))
+<<<<<<< HEAD
     # print(a.get_title())
 
+=======
+>>>>>>> 363228cf4d7372fedbc37474c392d10c081bf8dc
 
 
-    data=data_from_json(path)
-    print(data[1]['Buttons'][0])
+
+    #data=data_from_json(path)
+    #print(data[1]['Buttons'][0])
     #testwriteToFile('refal','refal')
 
    # print(data_from_json())
