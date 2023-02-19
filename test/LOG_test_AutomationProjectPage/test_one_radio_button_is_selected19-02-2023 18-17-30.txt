@@ -1,0 +1,6 @@
+test_one_radio_button_is_selected run with param: Other test pass 19/02/2023 18:17:30
+------------
+test_one_radio_button_is_selected run with param: Male test pass 19/02/2023 18:17:30
+------------
+test_one_radio_button_is_selected run with param: Female test pass 19/02/2023 18:17:30
+------------

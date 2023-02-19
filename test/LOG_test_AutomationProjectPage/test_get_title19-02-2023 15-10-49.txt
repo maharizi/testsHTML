@@ -1,2 +1,0 @@
-test_get_title run with param: Automation Project : TEST PASS 19/02/2023 15:10:49
-------------

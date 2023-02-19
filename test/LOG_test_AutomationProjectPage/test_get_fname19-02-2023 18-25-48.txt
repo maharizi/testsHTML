@@ -1,0 +1,2 @@
+test_get_fname run with param: shlomo expected :shlomo test pass 19/02/2023 18:25:48
+------------
