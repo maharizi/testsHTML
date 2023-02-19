@@ -4,9 +4,9 @@
 		"First Name": "shlomo",
 		"Last Name":"mhadke2r",
 		"Mobile": "26",
-		"Email": "shlomo22m@gmail.com",
-		"GENDER Buttons": "Other",
-		"Buttons":["Biology"],
+		"Email": "@gmail.com",
+		"GENDER Buttons": "",
+		"Buttons":["Biolog"],
 		"Set Text":"good morning"
 	},
 
@@ -16,7 +16,7 @@
 		"Mobile": "7264408",
 		"Email": "maorgd@gmail",
 		"GENDER Buttons": "Male",
-		"Buttons":["Physics"],
+		"Buttons":[""],
 		"Set Text":"my name"
 	},
 	
@@ -24,7 +24,7 @@
 		"First Name": "refal",
 		"Last Name":"dimri",
 		"Mobile": "8811608",
-		"Email": "refal@gmail.com",
+		"Email": "refalgmail.com",
 		"GENDER Buttons": "Female",
 		"Buttons":["Biology"],
 		"Set Text":"a"

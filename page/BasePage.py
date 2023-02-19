@@ -98,4 +98,4 @@ class BasePage(object):
         """
         shot_date = datetime.now().strftime("%d-%m-%Y %H-%M-%S")
         photo_name = "FAILED" + "-" + test_name + "-" + shot_date
-        self.driver.save_screenshot("../test/LOG_test_AutomationProjectPage/"+ photo_name +".png")
+        self.driver.save_screenshot("../test/LOG_test_AutomationProjectPage/" + photo_name + ".png")
