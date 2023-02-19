@@ -27,25 +27,25 @@ def f1(*args):
 #     print(a.url)
 
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 363228cf4d7372fedbc37474c392d10c081bf8dc
 if __name__ == '__main__':
 
     path='utils/ddt.json'
 
     locator=Locator()
     driver=Chrome()
-    a=BasePage(driver)
-<<<<<<< HEAD
 
-=======
+    #a=BasePage(driver)
+    b=HomePage(driver)
+
+    a=BasePage(driver)
+
+
+
     b=HomePage(a.driver)
 
 
-    a.insert_text(*Locator.email,text='shlomo22m@gmai.com')
+
+    b.insert_text(*Locator.email,text='shlomo22m@gmai.com')
     print(b.email_is_valid())
 
     #a.click_one_checkbox('Physics')
@@ -58,7 +58,7 @@ if __name__ == '__main__':
     # time.sleep(5)
 
 
->>>>>>> 363228cf4d7372fedbc37474c392d10c081bf8dc
+
     # a.set_text_from_prompt_alert('hii')
     #a.check_paragraph_content()
     #time.sleep(5)
@@ -76,11 +76,11 @@ if __name__ == '__main__':
     # a.insert_text(*Locator.first_name,text='shlomo')
     # time.sleep(5)
     # print(a.get_text_from_text_box(*Locator.first_name))
-<<<<<<< HEAD
+
+
     # print(a.get_title())
 
-=======
->>>>>>> 363228cf4d7372fedbc37474c392d10c081bf8dc
+
 
 
 
