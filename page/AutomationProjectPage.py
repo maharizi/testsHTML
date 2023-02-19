@@ -11,6 +11,7 @@ from page.BasePage import BasePage
 
 
 class HomePage(BasePage):
+
     def __init__(self, driver):
         """
         Constructor to this subclass,
@@ -19,6 +20,7 @@ class HomePage(BasePage):
         :param driver:
         """
         super().__init__(driver)
+
 
     def first_name_is_valid(self):
         """
@@ -33,6 +35,7 @@ class HomePage(BasePage):
         else:
             raise ValueError("The name is not valid")
 
+
     def last_name_is_valid(self):
         """
         This function check if the
@@ -45,6 +48,7 @@ class HomePage(BasePage):
             return True
         else:
             raise ValueError("The last name is not valid")
+
 
     def insert_city(self, city):
         """
@@ -59,6 +63,7 @@ class HomePage(BasePage):
             select.select_by_visible_text(city)
         except Exception:
             raise ValueError("invalid city name")
+
 
     def insert_phone_number(self, phone_number):
         """
@@ -75,6 +80,7 @@ class HomePage(BasePage):
         except Exception:
             raise Exception("Locator not found")
 
+
     def email_is_valid(self):
         """
         This function check if the
@@ -88,6 +94,7 @@ class HomePage(BasePage):
         else:
             raise ValueError("The email is not valid")
 
+
     def phone_number_is_valid(self):
         """
         This function click femail radio button
@@ -100,22 +107,24 @@ class HomePage(BasePage):
         else:
             raise ValueError("The phone number is not valid")
 
-    def click_one_radio_button(self, option):
-        """
-        This function click
-        radio-button
-        :return null:
-        """
-        try:
-            match option:
-                case 'Other':
-                    self.driver.find_element(*A_Locator.other).click()
-                case 'Male':
-                    self.driver.find_element(*A_Locator.male).click()
-                case 'Female':
-                    self.driver.find_element(*A_Locator.female).click()
-        except Exception:
-            raise Exception("locator not found")
+
+    # def click_one_radio_button(self, option):
+    #     """
+    #     This function click
+    #     radio-button
+    #     :return null:
+    #     """
+    #     try:
+    #         match option:
+    #             case 'Other':
+    #                 self.driver.find_element(*A_Locator.other).click()
+    #             case 'Male':
+    #                 self.driver.find_element(*A_Locator.male).click()
+    #             case 'Female':
+    #                 self.driver.find_element(*A_Locator.female).click()
+    #     except Exception:
+    #         raise Exception("locator not found")
+
 
     def one_radio_button_is_selected(self):
         """
@@ -134,31 +143,32 @@ class HomePage(BasePage):
         except Exception:
             raise Exception("Locator not found")
 
-    def click_one_checkbox(self, options):
-        """
-        This function click
-        checkbox
-        :return null:
-        """
-        try:
-            for option in options:
-                match option:
-                    case 'Math':
-                        self.driver.find_element(*A_Locator.math).click()
-                    case 'Physics':
-                        self.driver.find_element(*A_Locator.physics).click()
-                    case 'POP':
-                        self.driver.find_element(*A_Locator.pop).click()
-                    case 'DUD':
-                        self.driver.find_element(*A_Locator.dud).click()
-                    case 'Biology':
-                        self.driver.find_element(*A_Locator.biology).click()
-                    case 'Chemistry':
-                        self.driver.find_element(*A_Locator.chemistry).click()
-                    case 'English':
-                        self.driver.find_element(*A_Locator.english).click()
-        except Exception:
-            raise Exception("Locator not found")
+
+    # def click_one_checkbox(self, options):
+    #     """
+    #     This function click
+    #     checkbox
+    #     :return null:
+    #     """
+    #     try:
+    #         for option in options:
+    #             match option:
+    #                 case 'Math':
+    #                     self.driver.find_element(*A_Locator.math).click()
+    #                 case 'Physics':
+    #                     self.driver.find_element(*A_Locator.physics).click()
+    #                 case 'POP':
+    #                     self.driver.find_element(*A_Locator.pop).click()
+    #                 case 'DUD':
+    #                     self.driver.find_element(*A_Locator.dud).click()
+    #                 case 'Biology':
+    #                     self.driver.find_element(*A_Locator.biology).click()
+    #                 case 'Chemistry':
+    #                     self.driver.find_element(*A_Locator.chemistry).click()
+    #                 case 'English':
+    #                     self.driver.find_element(*A_Locator.english).click()
+    #     except Exception:
+    #         raise Exception("Locator not found")
 
 
     def at_least_one_check_box_is_selected(self):
@@ -185,6 +195,7 @@ class HomePage(BasePage):
             return False
         except Exception:
             raise Exception("Locator not found")
+
 
     def check_clear(self, click_clear=False):
         """
@@ -215,6 +226,7 @@ class HomePage(BasePage):
         except Exception:
             raise Exception("Locator not found")
 
+
     def check_paragraph_content(self):
         """
         This function return the text
@@ -226,6 +238,7 @@ class HomePage(BasePage):
             return paragraph.text
         except:
             raise Exception("Locator not found")
+
 
     def get_text_after_click_start_loading_button(self):
         """
@@ -242,6 +255,7 @@ class HomePage(BasePage):
             return self.driver.find_element(*A_Locator.paragraph_start_loading).text
         else:
             raise TimeoutException("The element with the title \"Finish\" was not displayed")
+
 
     def get_title_next_page_after_is_opened(self):
         """
@@ -260,6 +274,7 @@ class HomePage(BasePage):
         except Exception:
             raise Exception("The web site is not loaded")
 
+
     def get_title_windy_after_is_opened(self):
         """
         This function return the title of the "windy page"
@@ -273,6 +288,7 @@ class HomePage(BasePage):
             return self.get_title()
         except Exception:
             raise Exception("The web site is not loaded")
+
 
     def get_title_terra_santa_after_is_opened(self):
         """
@@ -288,6 +304,7 @@ class HomePage(BasePage):
         except Exception:
             raise Exception("The web site is not loaded")
 
+
     def get_title_java_book_after_is_opened(self):
         """
         This function return the title of the "java_book page"
@@ -299,6 +316,7 @@ class HomePage(BasePage):
             return self.get_title()
         except Exception:
             raise Exception("The web site is not loaded")
+
 
     def get_title_youtube_after_is_opened(self):
         """
@@ -313,6 +331,7 @@ class HomePage(BasePage):
             return self.get_title()
         except Exception:
             raise Exception("The web site is not loaded")
+
 
     def set_text_in_prompt_alert(self, text):
         """
@@ -331,7 +350,3 @@ class HomePage(BasePage):
             self.driver.implicitly_wait(5)
         except Exception:
             raise Exception("locator not found")
-
-
-
-
