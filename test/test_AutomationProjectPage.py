@@ -9,7 +9,6 @@ from page.BasePage import BasePage
 from page.AutomationProjectPage import HomePage
 from locator.LocatorAutomationProjectPage import Locator
 from dotenv import load_dotenv
-import os
 import sys
 import time
 import inspect
