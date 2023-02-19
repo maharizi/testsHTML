@@ -28,10 +28,6 @@ def f1(*args):
 
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 363228cf4d7372fedbc37474c392d10c081bf8dc
 if __name__ == '__main__':
 
     path='utils/ddt.json'
@@ -39,9 +35,7 @@ if __name__ == '__main__':
     locator=Locator()
     driver=Chrome()
     a=BasePage(driver)
-<<<<<<< HEAD
 
-=======
     b=HomePage(a.driver)
 
 
@@ -58,7 +52,6 @@ if __name__ == '__main__':
     # time.sleep(5)
 
 
->>>>>>> 363228cf4d7372fedbc37474c392d10c081bf8dc
     # a.set_text_from_prompt_alert('hii')
     #a.check_paragraph_content()
     #time.sleep(5)
@@ -76,11 +69,7 @@ if __name__ == '__main__':
     # a.insert_text(*Locator.first_name,text='shlomo')
     # time.sleep(5)
     # print(a.get_text_from_text_box(*Locator.first_name))
-<<<<<<< HEAD
-    # print(a.get_title())
 
-=======
->>>>>>> 363228cf4d7372fedbc37474c392d10c081bf8dc
 
 
 

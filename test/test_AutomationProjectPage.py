@@ -30,6 +30,7 @@ def basepage():
 def locator():
     return Locator()
 
+
 @pytest.fixture
 def homepage(basepage):
     driver1 = Chrome()
@@ -38,17 +39,25 @@ def homepage(basepage):
 
 @pytest.mark.test_get_title
 def test_get_title(basepage):
+    """
+    This test check title of html page
+    :param basepage:
+    """
     title = os.getenv('URL_TITLE')
     test_name = str(inspect.currentframe().f_code.co_name)
     try:
         assert basepage.get_title() == title
-        testwriteToFile(test_name + " " + "run with param: " + title + " " + ": TEST PASS")
+        testwriteToFile(test_name + " " + "run with param: " + title + " " + ": TEST PASS", 'test_get_title')
     except:
-        testwriteToFile(test_name + "run with param: " + title + " " + ": TEST FAILED")
+        testwriteToFile(test_name + "run with param: " + title + " " + ": TEST FAILED", 'test_get_title')
 
 
 @pytest.mark.test_get_fname
 def test_get_fname(basepage,locator,homepage):
+    """
+    This test check first name is written on the text box
+    :param basepage,locator,homepage:
+    """
     for name in data:
         try:
             basepage.insert_text(*locator.first_name, text=name['First Name'])
@@ -60,6 +69,10 @@ def test_get_fname(basepage,locator,homepage):
 
 @pytest.mark.test_first_name_is_valid
 def test_first_name_is_valid(basepage,locator,homepage):
+    """
+    This test check first name is valid
+    :param basepage,locator,homepage:
+    """
     for name in data:
         try:
             basepage.insert_text(*locator.first_name, text=name['First Name'])
@@ -73,6 +86,10 @@ def test_first_name_is_valid(basepage,locator,homepage):
 
 @pytest.mark.test_get_lname
 def test_get_lname(basepage,locator,homepage):
+    """
+    This test check last name is written on the text box
+    :param basepage,locator,homepage:
+    """
     for name in data:
         try:
             basepage.insert_text(*locator.last_name, text=name['Last Name'])
@@ -84,6 +101,10 @@ def test_get_lname(basepage,locator,homepage):
 
 @pytest.mark.test_last_name_is_valid
 def test_last_name_is_valid(basepage,locator,homepage):
+    """
+    This test check last name is valid
+    :param basepage,locator,homepage:
+    """
     for name in data:
         try:
             basepage.insert_text(*locator.last_name, text=name['Last Name'])
@@ -96,6 +117,10 @@ def test_last_name_is_valid(basepage,locator,homepage):
 
 @pytest.mark.test_get_email
 def test_get_email(basepage,locator,homepage):
+    """
+    This test check email is written on the text box
+    :param basepage,locator,homepage:
+    """
     for name in data:
         try:
             basepage.insert_text(*locator.email, text=name['Email'])
@@ -107,6 +132,10 @@ def test_get_email(basepage,locator,homepage):
 
 @pytest.mark.test_email_is_valid
 def test_email_is_valid(basepage,locator,homepage):
+    """
+    This test check email is valid
+    :param basepage,locator,homepage:
+    """
     for name in data:
         try:
             #automation_project_page.insert_text(*locator.email, text=name['Email'])
@@ -120,6 +149,10 @@ def test_email_is_valid(basepage,locator,homepage):
 
 @pytest.mark.test_get_phone
 def test_get_phone(basepage,locator):
+    """
+    This test check phone is written on the text box
+    :param basepage,locator:
+    """
     for name in data:
         try:
             basepage.insert_text(*locator.phone, text=name['Mobile'])
@@ -131,6 +164,10 @@ def test_get_phone(basepage,locator):
 
 @pytest.mark.test_phone_is_valid
 def test_phone_is_valid(basepage,locator,homepage):
+    """
+    This test check phone is valid
+    :param basepage,locator,homepage:
+    """
     for name in data:
         try:
             basepage.insert_text(*locator.phone, text=name['Mobile'])
@@ -143,6 +180,10 @@ def test_phone_is_valid(basepage,locator,homepage):
 
 @pytest.mark.test_one_radio_button_is_selected
 def test_one_radio_button_is_selected(basepage,locator,homepage):
+    """
+    This test check one radio button is selected
+    :param basepage,locator,homepage:
+    """
     for name in data:
         try:
             homepage.click_one_radio_button(name['GENDER Buttons'])
@@ -155,6 +196,10 @@ def test_one_radio_button_is_selected(basepage,locator,homepage):
 
 @pytest.mark.test_at_least_one_check_box_is_selected
 def test_at_least_one_check_box_is_selected(basepage,locator,homepage):
+    """
+    This test check at least one check box is selected
+    :param basepage,locator,homepage:
+    """
     for name in data:
         try:
             homepage.click_one_checkbox(name['Buttons'])
@@ -167,6 +212,10 @@ def test_at_least_one_check_box_is_selected(basepage,locator,homepage):
 
 @pytest.mark.test_clear_button
 def test_clear_button(basepage,locator,homepage):
+    """
+    This test check clear button clear all the information
+    :param basepage,locator,homepage:
+    """
     for name in data:
         basepage.insert_text(*locator.first_name, text=name['First Name'])
         basepage.insert_text(*locator.last_name, text=name['Last Name'])
@@ -183,6 +232,10 @@ def test_clear_button(basepage,locator,homepage):
 
 @pytest.mark.test_send_button
 def test_send_button(basepage,locator,homepage):
+    """
+    This test check all information is valid and send button clicked
+    :param basepage,locator,homepage:
+    """
     for name in data:
         try:
                 basepage.insert_text(*locator.first_name, text=name['First Name'])
@@ -202,63 +255,12 @@ def test_send_button(basepage,locator,homepage):
                 testwriteToFile(f'test of send button test fail\none ot more of the fields are not valid or missing:\nfirst name:{name["First Name"]} last name:{name["Last Name"]} email:{name["Email"]}\n', 'send_button_clicked')
 
 
-@pytest.mark.test_next_page
-def test_next_page(basepage,locator,homepage):
-        try:
-            homepage.get_title_next_page_after_is_opened()
-            #automation_project_page.find_element(*locator.next_page).click()
-            assert basepage.get_title() == 'Finish'
-            testwriteToFile(f' test of next page test pass', 'test_next_page')
-        except:
-            testwriteToFile(f' test of next page test fail', 'test_next_page')
-
-
-@pytest.mark.test_windy
-def test_windy(basepage,locator,homepage):
-        try:
-            homepage.get_title_windy_after_is_opened()
-            #automation_project_page.find_element(*locator.windy).click()
-            assert basepage.get_title() == 'Windy: Wind map & weather forecast'
-            testwriteToFile(f' test of Windy test pass', 'test_windy')
-        except:
-            testwriteToFile(f' test of Windy test fail', 'test_windy')
-
-
-@pytest.mark.test_tera_santa
-def test_tera_santa(basepage,locator,homepage):
-        try:
-            homepage.get_title_terra_santa_after_is_opened()
-            #automation_project_page.find_element(*locator.tera_santa).click()
-            assert basepage.get_title() == 'TERRASANTA SEAKAYAK EXPEDITIONS | טרה סנטה קיאקים ימיים – SEAKAYAK EXPEDITIONS'
-            testwriteToFile(f' test of Tera Santa test pass', 'test_tera_santa')
-        except:
-            testwriteToFile(f' test of Tera Santa test fail', 'test_tera_santa')
-
-
-@pytest.mark.test_java_book
-def test_java_book(basepage,locator,homepage):
-        try:
-            homepage.get_title_java_book_after_is_opened()
-            #automation_project_page.find_element(*locator.java_book).click()
-            assert basepage.get_title() != '404 Not Found'
-            testwriteToFile(f' test of Java Book test pass', 'test_java_book')
-        except:
-            testwriteToFile(f' test of Java Book test fail', 'test_java_book')
-
-
-@pytest.mark.test_youtube
-def test_youtube(homepage,locator,basepage):
-        try:
-            homepage.get_title_youtube_after_is_opened()
-            #automation_project_page.find_element(*locator.youtube).click()
-            assert basepage.get_title() == 'YouTube'
-            testwriteToFile(f' test of YouTube test pass', 'test_youtube')
-        except:
-            testwriteToFile(f' test of YouTube test fail', 'test_youtube')
-
-
 @pytest.mark.test_set_text_from_prompt_alert
 def test_set_text_from_prompt_alert(basepage,homepage):
+    """
+    This test check text alert write to paragraph
+    :param basepage,locator,homepage:
+    """
     for name in data:
         try:
             homepage.set_text_in_prompt_alert(name['Set Text'])
@@ -268,12 +270,104 @@ def test_set_text_from_prompt_alert(basepage,homepage):
             testwriteToFile(f' input is: {name["Set Text"]} \n expected result is: {name["Set Text"]} actual result is: {name["Set Text"]} test fail','test_set_text_from_prompt_alert')
 
 
-
 @pytest.mark.test_get_finish
 def test_get_finish(homepage):
+    """
+    This test check text is change after click of start button to "Finish"
+    :param homepage:
+    """
     try:
         assert homepage.get_text_after_click_start_loading_button() == "Finish"
         testwriteToFile(f' start loading button has been press expeted Finish to show test pass','test_get_finish')
     except:
         testwriteToFile(f' start loading button has been press expeted Finish to show test fail', 'test_get_finish')
 
+
+@pytest.mark.test_next_page
+def test_next_page(basepage,locator,homepage):
+    """
+    This test check next page link is opened
+    :param basepage,locator,homepage:
+    """
+    try:
+        homepage.get_title_next_page_after_is_opened()
+        #automation_project_page.find_element(*locator.next_page).click()
+        assert basepage.get_title() == 'Finish'
+        testwriteToFile(f' test of next page test pass', 'test_next_page')
+    except:
+        testwriteToFile(f' test of next page test fail', 'test_next_page')
+
+
+@pytest.mark.test_next_page
+def test_next_page(basepage,locator,homepage):
+    """
+    This test check next page link is opened
+    :param basepage,locator,homepage:
+    """
+    try:
+        homepage.get_title_next_page_after_is_opened()
+        #automation_project_page.find_element(*locator.next_page).click()
+        assert basepage.get_title() == 'Finish'
+        testwriteToFile(f' test of next page test pass', 'test_next_page')
+    except:
+        testwriteToFile(f' test of next page test fail', 'test_next_page')
+
+
+@pytest.mark.test_windy
+def test_windy(basepage,locator,homepage):
+    """
+    This test check windy link is opened
+    :param basepage,locator,homepage:
+    """
+    try:
+        homepage.get_title_windy_after_is_opened()
+        #automation_project_page.find_element(*locator.windy).click()
+        assert basepage.get_title() == 'Windy: Wind map & weather forecast'
+        testwriteToFile(f' test of Windy test pass', 'test_windy')
+    except:
+        testwriteToFile(f' test of Windy test fail', 'test_windy')
+
+
+@pytest.mark.test_tera_santa
+def test_tera_santa(basepage,locator,homepage):
+    """
+    This test check tera santa link is opened
+    :param basepage,locator,homepage:
+    """
+    try:
+        homepage.get_title_terra_santa_after_is_opened()
+        #automation_project_page.find_element(*locator.tera_santa).click()
+        assert basepage.get_title() == 'TERRASANTA SEAKAYAK EXPEDITIONS | טרה סנטה קיאקים ימיים – SEAKAYAK EXPEDITIONS'
+        testwriteToFile(f' test of Tera Santa test pass', 'test_tera_santa')
+    except:
+        testwriteToFile(f' test of Tera Santa test fail', 'test_tera_santa')
+
+
+@pytest.mark.test_java_book
+def test_java_book(basepage,locator,homepage):
+    """
+    This test check java book link is opened
+    :param basepage,locator,homepage:
+    """
+    try:
+        homepage.get_title_java_book_after_is_opened()
+        #automation_project_page.find_element(*locator.java_book).click()
+        assert basepage.get_title() != '404 Not Found'
+        testwriteToFile(f' test of Java Book test pass', 'test_java_book')
+    except:
+        testwriteToFile(f' test of Java Book test fail', 'test_java_book')
+
+
+@pytest.mark.test_youtube
+def test_youtube(homepage,locator,basepage):
+    """
+    This test check YouTube link is opened
+    :param basepage,locator,homepage:
+    """
+    try:
+        homepage.get_title_youtube_after_is_opened()
+        #automation_project_page.find_element(*locator.youtube).click()
+        assert basepage.get_title() == 'YouTube'
+        testwriteToFile(f' test of YouTube test pass', 'test_youtube')
+    except:
+        testwriteToFile(f' test of YouTube test fail', 'test_youtube')

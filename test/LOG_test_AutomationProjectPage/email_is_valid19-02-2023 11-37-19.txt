@@ -1,6 +1,0 @@
- test of valid email input email: shlomo22m@gmail.com test fail 19/02/2023 11:37:19
-------------
- test of valid email input email: maorgd@gmail test fail 19/02/2023 11:37:19
-------------
- test of valid email input email: refal@gmail test fail 19/02/2023 11:37:19
-------------
