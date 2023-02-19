@@ -1,2 +1,0 @@
- test of valid email input name   test fail 18/02/2023 23:56:45
- test of valid email input name maor@gmail.com test fail 18/02/2023 23:56:45

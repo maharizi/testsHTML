@@ -185,11 +185,13 @@ def test_send_button(automation_project_page,locator):
                 #automation_project_page.click_one_checkbox(name['Buttons'])
                # automation_project_page.click_one_radio_button(name['GENDER Buttons'])
                 assert automation_project_page.find_element(*locator.send).click() == None
+                assert automation_project_page.first_name_is_valid()==True
+                assert automation_project_page.last_name_is_valid()==True
                 assert automation_project_page.email_is_valid() == True
 
                 testwriteToFile(f' test of send button test pass', 'send_button_clicked')
         except Exception:
-                testwriteToFile(f' test of send button test fail', 'send_button_clicked')
+                testwriteToFile(f' test of send button test fail\n one ot more of the fields are not valid \n {name}', 'send_button_clicked')
 
 
 @pytest.mark.test_next_page
