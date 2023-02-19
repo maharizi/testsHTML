@@ -43,7 +43,7 @@ if __name__ == '__main__':
 
     #b=HomePage(a.driver)
 
-    print(b.insert_city(0))
+    print(b.insert_city('Tel Aviv'))
 
     # b.insert_text(*Locator.email,text='shlomo22m@gmai.com')
     # print(b.email_is_valid())

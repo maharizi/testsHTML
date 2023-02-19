@@ -434,12 +434,13 @@ def test_get_finish(homepage):
     This test check text is change after click of start button to "Finish"
     :param homepage:
     """
+    test_name = str(inspect.currentframe().f_code.co_name)
     try:
         assert homepage.get_text_after_click_start_loading_button() == "Finish"
-        testwriteToFile(f' start loading button has been press expeted Finish to show {test_pass}','test_get_finish')
+        testwriteToFile(f' start loading button has been press expeted Finish to show {test_pass}',test_name)
     except:
         homepage.screenshot(test_name=test_name)
-        testwriteToFile(f' start loading button has been press expeted Finish to show {test_fail}', 'test_get_finish')
+        testwriteToFile(f' start loading button has been press expeted Finish to show {test_fail}', test_name)
 
 
 

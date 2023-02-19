@@ -7,7 +7,7 @@ dotenv.load_dotenv("../test/.env")
 
 class BasePage(object):
 
-    def __init__(self, driver, url=os.getenv("URL_HOME_PAGE")):
+    def __init__(self, driver, url='file:///C:/AutomationProject.html'):
         """
         Constructor to this class,
         this function get webdriver and url

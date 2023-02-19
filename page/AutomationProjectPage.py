@@ -59,16 +59,11 @@ class HomePage(BasePage):
         :param city:
         :return:
         """
-        drop = Select(self.driver.find_element(*A_Locator.city))
-        drop.select_by_index(city)
-        selected_value = drop.first_selected_option.text
-        return selected_value
-        # try:
-        #     select = Select(self.driver.find_element(*A_Locator.city))
-        #     return  select.select_by_visible_text(city)
-        #
-        # except Exception:
-        #     raise ValueError(os.getenv("INVALID_CITY_NAME"))
+        try:
+            select = Select(self.driver.find_element(*A_Locator.city))
+            return  select.select_by_visible_text(city)
+        except Exception:
+            raise ValueError(os.getenv("INVALID_CITY_NAME"))
 
     def insert_phone_number(self, phone_number):
         """
