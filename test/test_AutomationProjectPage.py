@@ -38,11 +38,19 @@ def homepage(basepage):
 
 @pytest.mark.test_get_title
 def test_get_title(basepage):
+    title = os.getenv('URL_TITLE')
+    test_name = str(inspect.currentframe().f_code.co_name)
+    #test_get_titel = 'test_get_titel'
     try:
-        assert basepage.get_title() == os.getenv('URL_TITLE')
-        testwriteToFile('pass','test_get_titel')
+
+        # assert basepage.get_title() == os.getenv('URL_TITLE')
+        # testwriteToFile('pass','test_get_titel')
+
+        assert basepage.get_title() == title
+        testwriteToFile(test_name + " " + "run with param: " + title + " " + ": TEST PASS",test_name)
+
     except:
-        testwriteToFile('fail','test_get_titel')
+        testwriteToFile(test_name + "run with param: " + title + " " + ": TEST FAILED",test_name)
 
 
 @pytest.mark.test_get_fname

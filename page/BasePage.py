@@ -1,7 +1,12 @@
+import os
+import dotenv
+
+dotenv.load_dotenv("../test/.env")
 
 
 class BasePage(object):
-    def __init__(self, driver, url="file:///C:/AutomationProject.html"):
+
+    def __init__(self, driver, url=os.getenv("URL_HOME_PAGE")):
         """
         Constructor to this class,
         this function get webdriver and url
@@ -23,7 +28,7 @@ class BasePage(object):
         try:
             return self.driver.find_element(*locator)
         except Exception:
-            raise Exception("Locator not found")
+            raise Exception(os.getenv("LOCATOR_NOT_FOUND"))
 
     def get_title(self):
         """
@@ -54,7 +59,7 @@ class BasePage(object):
             text_box.clear()
             text_box.send_keys(text)
         except Exception:
-            raise Exception("Locator not found")
+            raise Exception(os.getenv("LOCATOR_NOT_FOUND"))
 
     def click_button(self, *locator):
         """
@@ -67,7 +72,7 @@ class BasePage(object):
             button = self.driver.find_element(*locator)
             button.click()
         except Exception:
-            raise Exception("Locator not found")
+            raise Exception(os.getenv("LOCATOR_NOT_FOUND"))
 
     def get_text_from_text_box(self, *locator):
         """
@@ -80,4 +85,4 @@ class BasePage(object):
             text_box = self.find_element(*locator)
             return text_box.get_attribute('value')
         except Exception:
-            raise Exception("Locator not found")
+            raise Exception(os.getenv("LOCATOR_NOT_FOUND"))

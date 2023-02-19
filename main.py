@@ -35,8 +35,16 @@ if __name__ == '__main__':
 
     locator=Locator()
     driver=Chrome()
+
     #a=BasePage(driver)
     b=HomePage(driver)
+
+    a=BasePage(driver)
+
+
+
+    b=HomePage(a.driver)
+
 
 
     b.insert_text(*Locator.email,text='shlomo22m@gmai.com')
@@ -50,6 +58,7 @@ if __name__ == '__main__':
     # name="shlomo"
     # a.insert_text(*Locator.first_name,text='shlomo')
     # time.sleep(5)
+
 
 
     # a.set_text_from_prompt_alert('hii')
@@ -69,6 +78,10 @@ if __name__ == '__main__':
     # a.insert_text(*Locator.first_name,text='shlomo')
     # time.sleep(5)
     # print(a.get_text_from_text_box(*Locator.first_name))
+
+    # print(a.get_title())
+
+
 
 
 
