@@ -65,6 +65,7 @@ class HomePage(BasePage):
         except Exception:
             raise ValueError(os.getenv("INVALID_CITY_NAME"))
 
+
     def insert_phone_number(self, phone_number):
         """
         This function get a full phone number
@@ -241,7 +242,7 @@ class HomePage(BasePage):
         self.click_button(*A_Locator.button_start_loading)
         element_text = WebDriverWait(self.driver, 10)
         element_text. \
-            until(ec.text_to_be_present_in_element(*A_Locator.paragraph_start_loading, text_="Finish"))
+            until(ec.text_to_be_present_in_element(A_Locator.paragraph_start_loading, text_="Finish"))
         if element_text:
             return self.driver.find_element(*A_Locator.paragraph_start_loading).text
         else:
