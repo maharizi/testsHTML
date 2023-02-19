@@ -18,6 +18,7 @@ from page.AutomationProjectPage import HomePage
 from page.BasePage import BasePage
 
 
+<<<<<<< HEAD
 def f1(*args):
     print(args)
 
@@ -28,19 +29,50 @@ if __name__ == '__main__':
 
 
 
+=======
+if __name__ == '__main__':
+
+    path='utils/ddt.json'
+
+    locator=Locator()
+    driver=Chrome()
+    a=BasePage(driver)
+>>>>>>> 060472c016a5faa15585ce5a1645edf7f21a5c3b
 
     #a.insert_text(*Locator.first_name,text='shlomo')
     #a.click_one_checkbox('Physics')
     #a.insert_text(*Locator.paragraph_set_text, text='shlomo')
 
+<<<<<<< HEAD
 
     # name="shlomo"
     # a.insert_text(*Locator.first_name,text='shlomo')
     # time.sleep(5)
 
+=======
+    # a.set_text_from_prompt_alert('hii')
+    #a.check_paragraph_content()
+    #time.sleep(5)
+    # print(a.check_paragraph_content())
+    #print(a.get_title_next_page_after_is_opened())
+    #a.get_text_after_click_start_loading_button()
 
-    #data=data_from_json()
-    #print(data[1]['Buttons'][1])
+
+    time.sleep(10)
+    print(a.check_paragraph_content())
+
+
+    #input()
+    # name="shlomo"
+    # a.insert_text(*Locator.first_name,text='shlomo')
+    # time.sleep(5)
+    # print(a.get_text_from_text_box(*Locator.first_name))
+    # print(a.get_title())
+>>>>>>> 060472c016a5faa15585ce5a1645edf7f21a5c3b
+
+
+    data=data_from_json(path)
+    print(data[1]['Buttons'][0])
     #testwriteToFile('refal','refal')
 
    # print(data_from_json())

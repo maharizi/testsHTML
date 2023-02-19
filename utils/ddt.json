@@ -3,11 +3,11 @@
 	{
 		"First Name": "shlomo",
 		"Last Name":"mhadker",
-		"Mobile": "2724606",
-		"Email": "shlomo22m@gmail.com",
+		"Mobile": "26",
+		"Email": " ",
 		"GENDER Buttons": "Other",
 		"Buttons":["Biology"],
-		"Set Text":"gdfgd"
+		"Set Text":"good morning"
 	},
 
 	{
@@ -17,7 +17,7 @@
 		"Email": "maor@gmail.com",
 		"GENDER Buttons": "Male",
 		"Buttons":["Physics"],
-		"Set Text":"sacvcxd"
+		"Set Text":"my name"
 	},
 	
 		{
@@ -27,6 +27,6 @@
 		"Email": "refal@gmail.com",
 		"GENDER Buttons": "Female",
 		"Buttons":["Biology"],
-		"Set Text":"svcxvxad"
+		"Set Text":"a"
 	}
 ]
