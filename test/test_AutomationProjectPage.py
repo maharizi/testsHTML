@@ -9,7 +9,6 @@ from page.BasePage import BasePage
 from page.AutomationProjectPage import HomePage
 from locator.LocatorAutomationProjectPage import Locator
 from dotenv import load_dotenv
-import os
 import sys
 import time
 import inspect
@@ -21,7 +20,7 @@ data=data_from_json('../utils/ddt.json')
 # path=os.getenv('PATH')
 # data=data_from_json(path)
 first_name=os.getenv('FIRST_NAME')
-last_name=os.getenv('Last Name')
+last_name=os.getenv('LAST_NAME')
 email=os.getenv('EMAIL')
 mobile=os.getenv('MOBILE')
 gender_buttons=os.getenv('GENDER_BUTTONS')
@@ -53,6 +52,7 @@ def basepage():
 def locator():
     return Locator()
 
+
 @pytest.fixture
 def homepage(basepage):
     driver1 = Chrome()
@@ -61,6 +61,10 @@ def homepage(basepage):
 
 @pytest.mark.test_get_title
 def test_get_title(basepage):
+    """
+    This test check title of html page
+    :param basepage:
+    """
     title = os.getenv('URL_TITLE')
     test_name = str(inspect.currentframe().f_code.co_name)
     #test_get_titel = 'test_get_titel'
@@ -71,13 +75,19 @@ def test_get_title(basepage):
 
         assert basepage.get_title() == title
         testwriteToFile(test_name + " " + param + title + " " + ": "+ test_pass,test_name)
-
     except:
-        testwriteToFile(test_name + param + title + " " + ":"+ test_fail,test_name)
+        basepage.screenshot(test_name=test_name)
+        testwriteToFile(test_name +" "+ param + title + " " + ":"+ test_fail,test_name)
 
 
 @pytest.mark.test_get_fname
 def test_get_fname(basepage,locator,homepage):
+
+
+    """
+    This test check first name is written on the text box
+    :param basepage,locator,homepage:
+    """
     test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
@@ -85,11 +95,17 @@ def test_get_fname(basepage,locator,homepage):
             assert homepage.get_text_from_text_box(*locator.first_name) == name[first_name]
             testwriteToFile(f'{test_name} {param} {name[first_name]} {expected} :{name[first_name]} {test_pass}', test_name)
         except:
+             basepage.screenshot(test_name=test_name)
              testwriteToFile(f'{test_name} {param} {name[first_name]} {expected} :{name[first_name]} {test_fail}',test_name)
 
 
 @pytest.mark.test_first_name_is_valid
 def test_first_name_is_valid(basepage,locator,homepage):
+
+    """
+    This test check first name is valid
+    :param basepage,locator,homepage:
+    """
     test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
@@ -99,11 +115,17 @@ def test_first_name_is_valid(basepage,locator,homepage):
             #assert automation_project_page.first_name_is_valid()==True
             testwriteToFile(f'{test_name} {param}  {name[first_name]} {is_valid} {test_pass}',test_name)
         except Exception:
+            basepage.screenshot(test_name=test_name)
             testwriteToFile(f'{test_name} {param}  {name[first_name]} {is_not_valid} {test_fail}',test_name)
 
 
 @pytest.mark.test_get_lname
 def test_get_lname(basepage,locator,homepage):
+
+    """
+    This test check last name is written on the text box
+    :param basepage,locator,homepage:
+    """
     test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
@@ -111,11 +133,17 @@ def test_get_lname(basepage,locator,homepage):
             assert homepage.get_text_from_text_box(*locator.last_name) == name[last_name]
             testwriteToFile(f'{test_name} {param} {name[last_name]} {expected} {name[last_name]} {test_pass}',test_name)
         except:
+             basepage.screenshot(test_name=test_name)
              testwriteToFile(f'{test_name} {param} {name[last_name]} {expected} {name[last_name]} {test_fail}',test_name)
 
 
 @pytest.mark.test_last_name_is_valid
 def test_last_name_is_valid(basepage,locator,homepage):
+
+    """
+    This test check last name is valid
+    :param basepage,locator,homepage:
+    """
     test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
@@ -124,11 +152,17 @@ def test_last_name_is_valid(basepage,locator,homepage):
             assert homepage.last_name_is_valid() == True
             testwriteToFile(f'{test_name} {param} {name[last_name]} {is_valid} {test_pass}',test_name)
         except Exception:
+            basepage.screenshot(test_name=test_name)
             testwriteToFile(f'{test_name} {param} {name[last_name]} {is_not_valid} {test_fail}',test_name)
 
 
 @pytest.mark.test_get_email
 def test_get_email(basepage,locator,homepage):
+
+    """
+    This test check email is written on the text box
+    :param basepage,locator,homepage:
+    """
     test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
@@ -136,11 +170,17 @@ def test_get_email(basepage,locator,homepage):
             assert homepage.get_text_from_text_box(*locator.email) == name[email]
             testwriteToFile(f'{test_name} {param} {name[email]} {test_pass}',test_name)
         except:
+             basepage.screenshot(test_name=test_name)
              testwriteToFile(f'{test_name} {param} {name[email]} {test_fail}',test_name)
 
 
 @pytest.mark.test_email_is_valid
 def test_email_is_valid(basepage,locator,homepage):
+
+    """
+    This test check email is valid
+    :param basepage,locator,homepage:
+    """
     test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
@@ -150,11 +190,18 @@ def test_email_is_valid(basepage,locator,homepage):
             assert homepage.email_is_valid() == True
             testwriteToFile(f'{test_name} {param} {name[email]} {is_valid} {test_pass}',test_name)
         except Exception:
+            basepage.screenshot(test_name=test_name)
             testwriteToFile(f'{test_name} {param} {name[email]} {is_not_valid} {test_fail}',test_name)
 
 
 @pytest.mark.test_get_phone
 def test_get_phone(basepage,locator):
+
+
+    """
+    This test check phone is written on the text box
+    :param basepage,locator:
+    """
     test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
@@ -162,24 +209,37 @@ def test_get_phone(basepage,locator):
             assert basepage.get_text_from_text_box(*locator.phone) == name[mobile]
             testwriteToFile(f'{test_name} {param} {name[mobile]} {test_pass}',test_name)
         except:
+             basepage.screenshot(test_name=test_name)
              testwriteToFile(f'{test_name} {param} {name[mobile]} {test_fail}',test_name)
 
 
 @pytest.mark.test_phone_is_valid
 def test_phone_is_valid(basepage,locator,homepage):
+
+    """
+    This test check phone is valid
+    :param basepage,locator,homepage:
+    """
     test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
             basepage.insert_text(*locator.phone, text=name[mobile])
             #time.sleep(5)
             assert homepage.phone_number_is_valid() == True
-            testwriteToFile(f'{test_name} {param} {name[mobile]} {test_pass}',test_name)
+            testwriteToFile(f'{test_name} {param} {name[mobile]} {is_valid} {test_pass}',test_name)
         except Exception:
-            testwriteToFile(f'{test_name} {param} {name[mobile]} {test_fail}',test_name)
+            basepage.screenshot(test_name=test_name)
+            testwriteToFile(f'{test_name} {param} {name[mobile]} {is_not_valid} {test_fail}',test_name)
 
 
 @pytest.mark.test_one_radio_button_is_selected
 def test_one_radio_button_is_selected(basepage,locator,homepage):
+
+
+    """
+    This test check one radio button is selected
+    :param basepage,locator,homepage:
+    """
     test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
@@ -188,11 +248,18 @@ def test_one_radio_button_is_selected(basepage,locator,homepage):
             assert homepage.one_radio_button_is_selected()==True
             testwriteToFile(f'{test_name} {param} {name[gender_buttons]} {test_pass}',test_name)
         except Exception:
+            basepage.screenshot(test_name=test_name)
             testwriteToFile(f'{test_name} {param} {name[gender_buttons]} {test_fail}',test_name)
 
 
 @pytest.mark.test_at_least_one_check_box_is_selected
 def test_at_least_one_check_box_is_selected(basepage,locator,homepage):
+
+
+    """
+    This test check at least one check box is selected
+    :param basepage,locator,homepage:
+    """
     test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
@@ -201,11 +268,17 @@ def test_at_least_one_check_box_is_selected(basepage,locator,homepage):
             assert homepage.at_least_one_check_box_is_selected()==True
             testwriteToFile(f'{test_name} {param} {name[buttons]} {test_pass}',test_name)
         except Exception:
+            basepage.screenshot(test_name=test_name)
             testwriteToFile(f'{test_name} {param} {name[buttons]} {test_fail}',test_name)
 
 
 @pytest.mark.test_clear_button
 def test_clear_button(basepage,locator,homepage):
+
+    """
+    This test check clear button clear all the information
+    :param basepage,locator,homepage:
+    """
     test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         basepage.insert_text(*locator.first_name, text=name[first_name])
@@ -218,11 +291,17 @@ def test_clear_button(basepage,locator,homepage):
             assert homepage.check_clear(True)==True
             testwriteToFile(f'{test_name} {param} {name} \n  {test_pass}',test_name)
         except:
+             basepage.screenshot(test_name=test_name)
              testwriteToFile(f'{test_name} {param} {name} \n {test_fail}',test_name)
 
 
 @pytest.mark.test_send_button
 def test_send_button(basepage,locator,homepage):
+
+    """
+    This test check all information is valid and send button clicked
+    :param basepage,locator,homepage:
+    """
     test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
@@ -238,13 +317,19 @@ def test_send_button(basepage,locator,homepage):
                 assert homepage.last_name_is_valid()==True
                 assert homepage.email_is_valid() == True
 
-                testwriteToFile(f'{test_name} {param} first name:{name[first_name]} last name:{name[last_name]} email:{name[email]}',test_name)
+                testwriteToFile(f'{test_name} {param} first name:{name[first_name]} last name:{name[last_name]} email:{name[email]} {test_pass}',test_name)
         except Exception:
+                basepage.screenshot(test_name=test_name)
                 testwriteToFile(f'test of send button test fail\none ot more of the fields are not valid or missing:\nfirst name:{name[first_name]} last name:{name[last_name]} email:{name[email]}\n',test_name)
+
 
 
 @pytest.mark.test_next_page
 def test_next_page(basepage,locator,homepage):
+        """
+        This test check next page link is opened
+        :param basepage,locator,homepage:
+        """
         test_name = str(inspect.currentframe().f_code.co_name)
         try:
             homepage.get_title_next_page_after_is_opened()
@@ -252,11 +337,16 @@ def test_next_page(basepage,locator,homepage):
             assert basepage.get_title() == 'Finish'
             testwriteToFile(f'{test_name} {test_pass}',test_name)
         except:
+            basepage.screenshot(test_name=test_name)
             testwriteToFile(f'{test_name}  {test_fail}',test_name)
 
 
 @pytest.mark.test_windy
 def test_windy(basepage,locator,homepage):
+        """
+        This test check windy link is opened
+        :param basepage,locator,homepage:
+        """
         test_name = str(inspect.currentframe().f_code.co_name)
         try:
             assert homepage.get_title_windy_after_is_opened() ==windy_title
@@ -264,11 +354,16 @@ def test_windy(basepage,locator,homepage):
             #assert basepage.get_title() == 'Windy: Wind map & weather forecast'
             testwriteToFile(f'{test_name} {test_pass}',test_name)
         except:
+            basepage.screenshot(test_name=test_name)
             testwriteToFile(f'{test_name} {test_fail}',test_name)
 
 
 @pytest.mark.test_tera_santa
 def test_tera_santa(basepage,locator,homepage):
+        """
+        This test check tera santa link is opened
+        :param basepage,locator,homepage:
+        """
         test_name = str(inspect.currentframe().f_code.co_name)
         try:
             assert homepage.get_title_terra_santa_after_is_opened() == tera_santa_title
@@ -276,11 +371,17 @@ def test_tera_santa(basepage,locator,homepage):
             #assert basepage.get_title() == 'TERRASANTA SEAKAYAK EXPEDITIONS | טרה סנטה קיאקים ימיים – SEAKAYAK EXPEDITIONS'
             testwriteToFile(f'{test_name} {test_pass}',test_name)
         except:
+            basepage.screenshot(test_name=test_name)
             testwriteToFile(f'{test_name} {test_fail}',test_name)
 
 
 @pytest.mark.test_java_book
 def test_java_book(basepage,locator,homepage):
+        """
+        This test check java book link is opened
+        :param basepage,locator,homepage:
+        """
+
         test_name = str(inspect.currentframe().f_code.co_name)
         try:
             assert homepage.get_title_java_book_after_is_opened()!= '404 Not Found'
@@ -288,11 +389,16 @@ def test_java_book(basepage,locator,homepage):
             #assert basepage.get_title() != '404 Not Found'
             testwriteToFile(f'{test_name} {test_pass}',test_name)
         except:
+            basepage.screenshot(test_name=test_name)
             testwriteToFile(f'{test_name} {test_fail}',test_name)
 
 
 @pytest.mark.test_youtube
 def test_youtube(homepage,locator,basepage):
+        """
+        This test check YouTube link is opened
+        :param basepage,locator,homepage:
+        """
         test_name = str(inspect.currentframe().f_code.co_name)
         try:
             homepage.get_title_youtube_after_is_opened()
@@ -300,11 +406,17 @@ def test_youtube(homepage,locator,basepage):
             assert basepage.get_title() == youtube_title
             testwriteToFile(f'{test_name} {test_pass}',test_name)
         except:
+            basepage.screenshot(test_name=test_name)
             testwriteToFile(f'{test_name} {test_fail}',test_name)
+
 
 
 @pytest.mark.test_set_text_from_prompt_alert
 def test_set_text_from_prompt_alert(basepage,homepage):
+    """
+    This test check text alert write to paragraph
+    :param basepage,locator,homepage:
+    """
     test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
@@ -312,15 +424,25 @@ def test_set_text_from_prompt_alert(basepage,homepage):
             assert homepage.check_paragraph_content()== name[set_text]
             testwriteToFile(f'{test_name} {param} {name[set_text]} \n expected result is: {name[set_text]} actual result is: {name[set_text]} {test_pass}',test_name)
         except:
+            basepage.screenshot(test_name=test_name)
             testwriteToFile(f'{test_name} {param} {name[set_text]} \n expected result is: {name[set_text]} actual result is: {name[set_text]} {test_fail}',test_name)
-
 
 
 @pytest.mark.test_get_finish
 def test_get_finish(homepage):
+    """
+    This test check text is change after click of start button to "Finish"
+    :param homepage:
+    """
     try:
         assert homepage.get_text_after_click_start_loading_button() == "Finish"
         testwriteToFile(f' start loading button has been press expeted Finish to show {test_pass}','test_get_finish')
     except:
+        basepage.screenshot(test_name=test_name)
         testwriteToFile(f' start loading button has been press expeted Finish to show {test_fail}', 'test_get_finish')
+
+
+
+
+
 

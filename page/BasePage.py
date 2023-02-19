@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 import dotenv
 
 dotenv.load_dotenv("../test/.env")
@@ -86,3 +87,15 @@ class BasePage(object):
             return text_box.get_attribute('value')
         except Exception:
             raise Exception(os.getenv("LOCATOR_NOT_FOUND"))
+
+    def screenshot(self, test_name):
+        """ screenshot(test_name)
+        This function do screenshot to failed test
+        and save a photo in current folder.
+        the photo name contains status, test name, and time.
+        :param test_name:
+        :return:
+        """
+        shot_date = datetime.now().strftime("%d-%m-%Y %H-%M-%S")
+        photo_name = "FAILED" + "-" + test_name + "-" + shot_date
+        self.driver.save_screenshot("../test/LOG_test_AutomationProjectPage/"+ photo_name +".png")

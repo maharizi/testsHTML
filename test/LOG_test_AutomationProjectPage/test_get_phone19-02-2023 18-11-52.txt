@@ -1,6 +1,0 @@
-test_get_phone run with param: 26 test pass 19/02/2023 18:11:52
-------------
-test_get_phone run with param: 7264408 test pass 19/02/2023 18:11:52
-------------
-test_get_phone run with param: 8811608 test pass 19/02/2023 18:11:52
-------------

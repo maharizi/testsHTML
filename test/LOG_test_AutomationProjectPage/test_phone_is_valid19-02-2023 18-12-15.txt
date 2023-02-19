@@ -1,4 +1,0 @@
-test_phone_is_valid run with param: 7264408 test pass 19/02/2023 18:12:15
-------------
-test_phone_is_valid run with param: 8811608 test pass 19/02/2023 18:12:15
-------------

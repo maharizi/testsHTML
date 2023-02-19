@@ -27,8 +27,6 @@ def f1(*args):
 #     print(a.url)
 
 
-
-
 if __name__ == '__main__':
 
     path='utils/ddt.json'
@@ -78,6 +76,7 @@ if __name__ == '__main__':
     # a.insert_text(*Locator.first_name,text='shlomo')
     # time.sleep(5)
     # print(a.get_text_from_text_box(*Locator.first_name))
+
 
     # print(a.get_title())
 
