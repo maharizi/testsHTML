@@ -3,4 +3,4 @@ from test_AutomationProjectPage import *
 
 @pytest.fixture
 def test_title():
-    assert 
+    pass

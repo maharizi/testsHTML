@@ -37,16 +37,16 @@ if __name__ == '__main__':
     #a=BasePage(driver)
     b=HomePage(driver)
 
-    a=BasePage(driver)
+    #a=BasePage(driver)
 
 
 
-    b=HomePage(a.driver)
+    #b=HomePage(a.driver)
 
+    print(b.insert_city(0))
 
-
-    b.insert_text(*Locator.email,text='shlomo22m@gmai.com')
-    print(b.email_is_valid())
+    # b.insert_text(*Locator.email,text='shlomo22m@gmai.com')
+    # print(b.email_is_valid())
 
     #a.click_one_checkbox('Physics')
     #a.insert_text(*Locator.paragraph_set_text, text='shlomo')
