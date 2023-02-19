@@ -41,7 +41,6 @@ def test_get_title(basepage):
     try:
         assert basepage.get_title() == os.getenv('URL_TITLE')
         testwriteToFile('pass','test_get_titel')
-
     except:
         testwriteToFile('fail','test_get_titel')
 

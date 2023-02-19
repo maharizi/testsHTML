@@ -35,11 +35,11 @@ if __name__ == '__main__':
 
     locator=Locator()
     driver=Chrome()
-    a=BasePage(driver)
-    b=HomePage(a.driver)
+    #a=BasePage(driver)
+    b=HomePage(driver)
 
 
-    a.insert_text(*Locator.email,text='shlomo22m@gmai.com')
+    b.insert_text(*Locator.email,text='shlomo22m@gmai.com')
     print(b.email_is_valid())
 
     #a.click_one_checkbox('Physics')
