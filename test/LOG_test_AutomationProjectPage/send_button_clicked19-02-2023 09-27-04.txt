@@ -1,6 +1,0 @@
- test of send button test fail
- one ot more of the fields are not valid 
- {'First Name': 'shlomo', 'Last Name': 'mhadker', 'Mobile': '26', 'Email': 'ds', 'GENDER Buttons': 'Other', 'Buttons': ['Biology'], 'Set Text': 'good morning'} 19/02/2023 09:27:04
- test of send button test fail
- one ot more of the fields are not valid 
- {'First Name': 'maor1', 'Last Name': 'maharizi', 'Mobile': '7264408', 'Email': 'maor@gmail.com', 'GENDER Buttons': 'Male', 'Buttons': ['Physics'], 'Set Text': 'my name'} 19/02/2023 09:27:04
