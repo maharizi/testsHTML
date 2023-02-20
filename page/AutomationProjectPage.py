@@ -78,6 +78,8 @@ class HomePage(BasePage):
             select_area_code = Select(self.driver.find_element(*A_Locator.area_code))
             select_area_code.select_by_visible_text(phone_number[0:3])
             self.insert_text(*A_Locator.phone, text=phone_number[3:])
+            self.phone_number_is_valid()
+            return True
         except Exception:
             raise Exception(os.getenv("LOCATOR_NOT_FOUND"))
 

@@ -1,6 +1,0 @@
-test_last_name_is_valid run with param: mhadke2r is not valid test fail 20/02/2023 11:51:22
-------------
-test_last_name_is_valid run with param: maharizi is valid test pass 20/02/2023 11:51:22
-------------
-test_last_name_is_valid run with param: dimri is valid test pass 20/02/2023 11:51:22
-------------

@@ -30,9 +30,6 @@ youtube_title = os.getenv('YOUTUBE')
 
 
 test_name = os.getenv("TEST")
-
-test_name = None
-
 driver = Chrome()
 
 
@@ -186,7 +183,7 @@ def test_phone_is_valid(locator, homepage):
     for name in data:
         try:
             homepage.insert_text(*locator.phone, text=name[mobile])
-            assert homepage.phone_number_is_valid() == True
+            assert homepage.insert_phone_number(name[mobile]) == True
             testwriteToFile(f'{test_name} {param} {name[mobile]} {is_valid} {test_pass}', test_name)
         except:
             homepage.screenshot(test_name=test_name)

@@ -1,2 +1,0 @@
-test_phone_is_valid run with param: 8811608 is valid test pass 20/02/2023 11:14:47
-------------

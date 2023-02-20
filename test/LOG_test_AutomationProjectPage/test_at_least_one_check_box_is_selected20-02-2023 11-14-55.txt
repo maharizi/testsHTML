@@ -1,2 +1,0 @@
-test_at_least_one_check_box_is_selected run with param: ['Biolog'] test fail 20/02/2023 11:14:55
-------------
