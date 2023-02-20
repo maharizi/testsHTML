@@ -1,2 +1,0 @@
-test_get_email run with param: @gmail.com test pass 20/02/2023 11:51:22
-------------

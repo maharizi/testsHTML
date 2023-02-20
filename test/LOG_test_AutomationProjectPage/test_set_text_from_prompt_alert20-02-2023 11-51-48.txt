@@ -1,9 +1,0 @@
-test_set_text_from_prompt_alert run with param: good morning 
- expected result is: good morning actual result is: good morning test pass 20/02/2023 11:51:48
-------------
-test_set_text_from_prompt_alert run with param: my name 
- expected result is: my name actual result is: my name test pass 20/02/2023 11:51:48
-------------
-test_set_text_from_prompt_alert run with param: a 
- expected result is: a actual result is: a test pass 20/02/2023 11:51:48
-------------

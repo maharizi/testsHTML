@@ -1,6 +1,0 @@
-test_get_fname run with param: shlomo expected: :shlomo test pass 20/02/2023 11:51:20
-------------
-test_get_fname run with param: maor1 expected: :maor1 test pass 20/02/2023 11:51:20
-------------
-test_get_fname run with param: refal expected: :refal test pass 20/02/2023 11:51:20
-------------

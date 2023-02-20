@@ -30,9 +30,6 @@ youtube_title = os.getenv('YOUTUBE')
 
 
 test_name = os.getenv("TEST")
-
-test_name = None
-
 driver = Chrome()
 
 
@@ -44,7 +41,6 @@ def locator():
 @pytest.fixture
 def homepage():
     return HomePage(driver)
-
 
 @pytest.mark.test_get_title
 def test_get_title(homepage):

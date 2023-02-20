@@ -1,4 +1,0 @@
-test_at_least_one_check_box_is_selected run with param: [''] test fail 20/02/2023 11:14:56
-------------
-test_at_least_one_check_box_is_selected run with param: ['Biology'] test pass 20/02/2023 11:14:56
-------------

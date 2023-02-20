@@ -1,4 +1,0 @@
-test_clear_button run with param:
-{'First Name': 'refal', 'Last Name': 'dimri', 'Mobile': '8811608', 'Email': 'refalgmail.com', 'GENDER Buttons': 'Female', 'Buttons': ['Biology'], 'Set Text': 'a'}
-test pass 20/02/2023 11:15:02
-------------

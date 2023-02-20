@@ -1,0 +1,8 @@
+test run with param:Automation Project : test pass 20/02/2023 12:17:16
+------------
+test run with param: shlomo expected: :shlomo test pass 20/02/2023 12:17:30
+------------
+test run with param: maor1 expected: :maor1 test pass 20/02/2023 12:17:30
+------------
+test run with param: refal expected: :refal test pass 20/02/2023 12:17:30
+------------

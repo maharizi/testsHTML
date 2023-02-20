@@ -1,4 +1,0 @@
-test_first_name_is_valid run with param:  maor1 is not valid test fail 20/02/2023 11:51:21
-------------
-test_first_name_is_valid run with param:  refal is valid test pass 20/02/2023 11:51:21
-------------

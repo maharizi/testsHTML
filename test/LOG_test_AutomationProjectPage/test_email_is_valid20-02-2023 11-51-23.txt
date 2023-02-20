@@ -1,4 +1,0 @@
-test_email_is_valid run with param: @gmail.com is not valid test fail 20/02/2023 11:51:23
-------------
-test_email_is_valid run with param: maorgd@gmail is not valid test fail 20/02/2023 11:51:23
-------------

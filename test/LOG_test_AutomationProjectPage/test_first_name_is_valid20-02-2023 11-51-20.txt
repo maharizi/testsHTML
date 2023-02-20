@@ -1,2 +1,0 @@
-test_first_name_is_valid run with param:  shlomo is valid test pass 20/02/2023 11:51:20
-------------
