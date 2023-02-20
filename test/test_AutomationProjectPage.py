@@ -29,6 +29,7 @@ windy_title = os.getenv('WINDY')
 youtube_title = os.getenv('YOUTUBE')
 
 test_name = None
+driver = Chrome()
 
 
 @pytest.fixture
@@ -38,7 +39,6 @@ def locator():
 
 @pytest.fixture
 def homepage():
-    driver = Chrome()
     return HomePage(driver)
 
 

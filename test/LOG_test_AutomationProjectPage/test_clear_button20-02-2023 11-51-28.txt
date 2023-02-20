@@ -1,0 +1,4 @@
+test_clear_button run with param:
+{'First Name': 'shlomo', 'Last Name': 'mhadke2r', 'Mobile': '26', 'Email': '@gmail.com', 'GENDER Buttons': '', 'Buttons': ['Biolog'], 'Set Text': 'good morning'}
+test pass 20/02/2023 11:51:28
+------------

@@ -1,0 +1,6 @@
+test_get_lname run with param: mhadke2r expected: mhadke2r test pass 20/02/2023 11:51:21
+------------
+test_get_lname run with param: maharizi expected: maharizi test pass 20/02/2023 11:51:21
+------------
+test_get_lname run with param: dimri expected: dimri test pass 20/02/2023 11:51:21
+------------
