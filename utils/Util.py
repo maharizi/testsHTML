@@ -3,6 +3,7 @@ import os
 from datetime import datetime
 import sys
 
+date = datetime.now().strftime("%d-%m-%Y %H-%M")
 
 def data_from_json(path):
 
@@ -16,7 +17,7 @@ def testwriteToFile(string, filename):
 
     directory='LOG_test_AutomationProjectPage'
     try:
-        date = datetime.now().strftime("%d-%m-%Y %H-%M-%S")
+        #date = datetime.now().strftime("%d-%m-%Y %H-%M")
         filename += f"{date}.txt"
         filepath = os.path.join(directory, filename)
         file = open(filepath, 'a')

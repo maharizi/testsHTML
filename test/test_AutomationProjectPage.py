@@ -28,7 +28,8 @@ tera_santa_title = os.getenv('TERRASANTA')
 windy_title = os.getenv('WINDY')
 youtube_title = os.getenv('YOUTUBE')
 
-test_name = None
+test_name = os.getenv("TEST")
+driver = Chrome()
 
 
 @pytest.fixture
@@ -38,7 +39,7 @@ def locator():
 
 @pytest.fixture
 def homepage():
-    driver = Chrome()
+
     return HomePage(driver)
 
 
@@ -49,7 +50,6 @@ def test_get_title(homepage):
     :param homepage:
     """
     title = os.getenv('URL_TITLE')
-    test_name = str(inspect.currentframe().f_code.co_name)
     try:
         assert homepage.get_title() == title
         testwriteToFile(test_name + " " + param + title + " " + ": " + test_pass, test_name)
@@ -64,7 +64,6 @@ def test_get_fname(locator, homepage):
     This test check first name is written on the text box
     :param locator,homepage:
     """
-    test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
             homepage.insert_text(*locator.first_name, text=name[first_name])
@@ -83,7 +82,6 @@ def test_first_name_is_valid(locator, homepage):
     This test check first name is valid
     :param locator,homepage:
     """
-    test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
             homepage.insert_text(*locator.first_name, text=name[first_name])
@@ -100,7 +98,6 @@ def test_get_lname(locator, homepage):
     This test check last name is written on the text box
     :param locator,homepage:
     """
-    test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
             homepage.insert_text(*locator.last_name, text=name[last_name])
@@ -119,7 +116,6 @@ def test_last_name_is_valid(locator, homepage):
     This test check last name is valid
     :param locator,homepage:
     """
-    test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
             homepage.insert_text(*locator.last_name, text=name[last_name])
@@ -136,7 +132,6 @@ def test_get_email(locator, homepage):
     This test check email is written on the text box
     :param locator,homepage:
     """
-    test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
             homepage.insert_text(*locator.email, text=name[email])
@@ -153,7 +148,6 @@ def test_email_is_valid(locator, homepage):
     This test check email is valid
     :param locator,homepage:
     """
-    test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
             homepage.insert_text(*locator.email, text=name[email])
@@ -170,7 +164,6 @@ def test_get_phone(homepage, locator):
     This test check phone is written on the text box
     :param homepage,locator:
     """
-    test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
             homepage.insert_text(*locator.phone, text=name[mobile])
@@ -187,7 +180,6 @@ def test_phone_is_valid(locator, homepage):
     This test check phone is valid
     :param locator,homepage:
     """
-    test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
             homepage.insert_text(*locator.phone, text=name[mobile])
@@ -204,7 +196,6 @@ def test_one_radio_button_is_selected(locator, homepage):
     This test check one radio button is selected
     :param locator,homepage:
     """
-    test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
             homepage.click_one_radio_button(name[gender_buttons])
@@ -221,7 +212,6 @@ def test_at_least_one_check_box_is_selected(locator, homepage):
     This test check at least one check box is selected
     :param locator,homepage:
     """
-    test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
             homepage.click_one_checkbox(name[buttons])
@@ -238,7 +228,6 @@ def test_clear_button(locator, homepage):
     This test check clear button clear all the information
     :param locator,homepage:
     """
-    test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         homepage.insert_text(*locator.first_name, text=name[first_name])
         homepage.insert_text(*locator.last_name, text=name[last_name])
@@ -260,7 +249,6 @@ def test_send_button(locator, homepage):
     This test check all information is valid and send button clicked
     :param locator,homepage:
     """
-    test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
             homepage.insert_text(*locator.first_name, text=name[first_name])
@@ -286,7 +274,6 @@ def test_next_page(locator, homepage):
         This test check next page link is opened
         :param locator,homepage:
         """
-    test_name = str(inspect.currentframe().f_code.co_name)
     try:
         homepage.get_title_next_page_after_is_opened()
         assert homepage.get_title() == 'Finish'
@@ -302,7 +289,6 @@ def test_windy(locator, homepage):
         This test check windy link is opened
         :param locator,homepage:
         """
-    test_name = str(inspect.currentframe().f_code.co_name)
     try:
         assert homepage.get_title_windy_after_is_opened() == windy_title
         testwriteToFile(f'{test_name} {test_pass}', test_name)
@@ -317,7 +303,6 @@ def test_tera_santa(locator, homepage):
         This test check tera santa link is opened
         :param locator,homepage:
         """
-    test_name = str(inspect.currentframe().f_code.co_name)
     try:
         assert homepage.get_title_terra_santa_after_is_opened() == tera_santa_title
         testwriteToFile(f'{test_name} {test_pass}', test_name)
@@ -332,7 +317,6 @@ def test_java_book(locator, homepage):
         This test check java book link is opened
         :param locator,homepage:
         """
-    test_name = str(inspect.currentframe().f_code.co_name)
     try:
         assert homepage.get_title_java_book_after_is_opened() != '404 Not Found'
         testwriteToFile(f'{test_name} {test_pass}', test_name)
@@ -347,7 +331,6 @@ def test_youtube(homepage, locator):
         This test check YouTube link is opened
         :param locator,homepage:
         """
-    test_name = str(inspect.currentframe().f_code.co_name)
     try:
         homepage.get_title_youtube_after_is_opened()
         assert homepage.get_title() == youtube_title
@@ -363,7 +346,6 @@ def test_set_text_from_prompt_alert(homepage):
     This test check text alert write to paragraph
     :param homepage:
     """
-    test_name = str(inspect.currentframe().f_code.co_name)
     for name in data:
         try:
             homepage.set_text_in_prompt_alert(name[set_text])
@@ -382,7 +364,6 @@ def test_get_finish(homepage):
     This test check text is change after click of start button to "Finish"
     :param homepage:
     """
-    test_name = str(inspect.currentframe().f_code.co_name)
     try:
         assert homepage.get_text_after_click_start_loading_button() == "Finish"
         testwriteToFile(f' start loading button has been press expeted Finish to show {test_pass}',test_name)
