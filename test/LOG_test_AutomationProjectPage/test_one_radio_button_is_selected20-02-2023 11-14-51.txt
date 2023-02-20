@@ -1,0 +1,6 @@
+test_one_radio_button_is_selected run with param:  test fail 20/02/2023 11:14:51
+------------
+test_one_radio_button_is_selected run with param: Male test pass 20/02/2023 11:14:51
+------------
+test_one_radio_button_is_selected run with param: Female test pass 20/02/2023 11:14:51
+------------

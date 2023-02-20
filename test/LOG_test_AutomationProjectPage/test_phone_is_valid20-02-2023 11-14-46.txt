@@ -1,0 +1,4 @@
+test_phone_is_valid run with param: 26 is not valid test fail 20/02/2023 11:14:46
+------------
+test_phone_is_valid run with param: 7264408 is valid test pass 20/02/2023 11:14:46
+------------

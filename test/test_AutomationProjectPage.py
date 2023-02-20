@@ -28,7 +28,11 @@ tera_santa_title = os.getenv('TERRASANTA')
 windy_title = os.getenv('WINDY')
 youtube_title = os.getenv('YOUTUBE')
 
+
 test_name = os.getenv("TEST")
+
+test_name = None
+
 driver = Chrome()
 
 
@@ -39,7 +43,6 @@ def locator():
 
 @pytest.fixture
 def homepage():
-
     return HomePage(driver)
 
 

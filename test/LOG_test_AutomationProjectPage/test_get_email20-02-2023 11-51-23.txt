@@ -1,0 +1,4 @@
+test_get_email run with param: maorgd@gmail test pass 20/02/2023 11:51:23
+------------
+test_get_email run with param: refalgmail.com test pass 20/02/2023 11:51:23
+------------
