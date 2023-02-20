@@ -6,8 +6,8 @@
 		"Mobile": "26",
 		"Email": "@gmail.com",
 		"GENDER Buttons": "",
-		"Buttons":["Biolog"],
-		"Set Text":"good morning"
+		"Buttons":["Biology","Math"],
+		"Set Text":""
 	},
 
 	{
@@ -26,7 +26,7 @@
 		"Mobile": "8811608",
 		"Email": "refalgmail.com",
 		"GENDER Buttons": "Female",
-		"Buttons":["Biology"],
-		"Set Text":"a"
+		"Buttons":["Biology","Math"],
+		"Set Text":""
 	}
 ]
