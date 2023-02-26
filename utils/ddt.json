@@ -6,15 +6,15 @@
 		"Mobile": "26",
 		"Email": "@gmail.com",
 		"GENDER Buttons": "",
-		"Buttons":["Biolog"],
-		"Set Text":"good morning"
+		"Buttons":["Biology","Math"],
+		"Set Text":"hhhhhhhh \n nnn"
 	},
 
 	{
 		"First Name": "maor1",
 		"Last Name":"maharizi",
 		"Mobile": "05072644080",
-		"Email": "maorgd@gmail",
+		"Email": "elad@gmail.news",
 		"GENDER Buttons": "Male",
 		"Buttons":[""],
 		"Set Text":"my name"
@@ -26,7 +26,7 @@
 		"Mobile": "0508811608",
 		"Email": "refalgmail.com",
 		"GENDER Buttons": "Female",
-		"Buttons":["Biology"],
-		"Set Text":"a"
+		"Buttons":["Biology","Math"],
+		"Set Text":""
 	}
 ]

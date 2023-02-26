@@ -3,7 +3,7 @@ import os
 from datetime import datetime
 import sys
 
-date = datetime.now().strftime("%d-%m-%Y %H-%M")
+date = datetime.now().strftime("%d-%m-%Y %H-%M-%S")
 
 def data_from_json(path):
 

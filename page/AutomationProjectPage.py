@@ -32,7 +32,7 @@ class HomePage(BasePage):
         :return bool:
         """
         first_name = self.get_text_from_text_box(*A_Locator.first_name)
-        first_name_regex = "[a-zA-Z]{1,15}$"
+        first_name_regex = "[a-zA-Z]{2,15}$"
         if re.match(first_name_regex, first_name):
             return True
         else:
@@ -45,7 +45,7 @@ class HomePage(BasePage):
         :return bool:
         """
         last_name = self.get_text_from_text_box(*A_Locator.last_name)
-        last_name_regex = "[a-zA-Z]{1,15}$"
+        last_name_regex = "[a-zA-Z]{2,15}$"
         if re.match(last_name_regex, last_name):
             return True
         else:
